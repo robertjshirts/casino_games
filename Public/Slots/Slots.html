@@ -2,21 +2,31 @@
 <html>
 <head>
     <title>Slots</title>
-    <link rel="stylesheet" type="text/css" href="Slots.css">
+    <link rel="stylesheet" type="text/css" href="./css/Slots.css">
     <script src="Slots.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <div class="slots">
-            <div class="slot" id="slot1"></div>
-            <div class="slot" id="slot2"></div>
-            <div class="slot" id="slot3"></div>
+        <div class="slots" style="background-image: url('../CasinoAssets/Slots/Slot\ Machine\ Barrel.png');">
+            <div class="slot1" id="slot1"></div>
+            <div class="slot2" id="slot2"></div>
+            <div class="slot3" id="slot3"></div>
+        </div>
+        <div class="bet">
+            <button id="chip1">
+            <button id="chip5">
+            <button id="chip10">
+            <button id="chip20">
+            <button id="chip50">
+            <button id="chip100">
+            <button id="chip1000">
+            <button id="chip5000">
         </div>
         <div class="buttons">
             <button id="spin" onclick="spin()">Spin</button>
-            <button id="stop" onclick="stop()">Stop</button>
         </div>
     </div>
+</body>
 
 </html>
