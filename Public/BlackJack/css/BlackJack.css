@@ -1,8 +1,39 @@
 html{
-    background: url("../../CasinoAssets/Overall UI/Generic Felt Mat.jpeg");
+    background: url("../CasinoAssets/Overall\ UI/Generic Felt Mat.jpeg");
     background-size: cover;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     width: 100%;
     height: 100%;
     font-kerning: none;
+}
+
+#standBtn {
+    left: 81.2%;
+    top: 78%;
+    visibility: hidden;
+}
+
+.turnButton{
+    background-color:blueviolet;
+    width: 295px;
+    height: 73px;
+    color: black;
+    text-align: center;
+    font-weight:900;
+    font-size: 54px;
+    position:absolute;
+}
+
+#actionContainer {
+    justify-content: space-between;
+    display: flex;
+    top: 71.5%;
+    width: 30%;
+    /* height: 45px; */
+    left: 50%;
+    transform:translateX(-50%)
+}
+
+#actionContainer a {
+    text-decoration: none;
 }
