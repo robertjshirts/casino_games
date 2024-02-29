@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BlackJack</title>
+    <link rel="stylesheet" type="text/css" href="./css/BlackJack.css">
+    <link rel="stylesheet" type="text/css" href="../css/variables.css">
+    <script src="./js/BlackJack.js" defer></script>
+</head>
+<header>
+
+</header>
+
+<body>
+    <div class="bodyContainer">
+
+        <div class="genericButton" id="back">B A C K</div>
+        <div id="chipContainer">
+            <div class="chip chip1"></div>
+            <div class="chip chip5"></div>
+            <div class="chip chip10"></div>
+            <div class="chip chip20"></div>
+            <div class="chip chip50"></div>
+            <div class="chip chip100"></div>
+            <div class="chip chip500"></div>
+            <div class="chip chip1000"></div>
+            <div class="chip chip5000"></div>
+        </div>
+        <div class="genericButton" id="actionButton">S P I N</div>
+
+        <div class="cards">
+            <div class="blue1" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_blue1.png');"></div>
+            <div class="blue2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_blue2.png');"></div>
+            <div class="blue3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_blue3.png');"></div>
+            <div class="blue4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_blue4.png');"></div>
+            <div class="blue5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_blue5.png');"></div>
+            <div class="green1" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_green1.png');"></div>
+            <div class="green2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_green2.png');"></div>
+            <div class="green3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_green3.png');"></div>
+            <div class="green4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_green4.png');"></div>
+            <div class="green5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_green5.png');"></div>
+            <div class="red1" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_red1.png');"></div>
+            <div class="red2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_red2.png');"></div>
+            <div class="red3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_red3.png');"></div>
+            <div class="red4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_red4.png');"></div>
+            <div class="red5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardBack_red5.png');"></div>
+            <div class="clubs2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs2.png');"></div>
+            <div class="clubs3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs3.png');"></div>
+            <div class="clubs4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs4.png');"></div>
+            <div class="clubs5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs5.png');"></div>
+            <div class="clubs6" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs6.png');"></div>
+            <div class="clubs7" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs7.png');"></div>
+            <div class="clubs8" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs8.png');"></div>
+            <div class="clubs9" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs9.png');"></div>
+            <div class="clubs10" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubs10.png');"></div>
+            <div class="clubsA" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubsA.png');"></div>
+            <div class="clubsJ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubsJ.png');"></div>
+            <div class="clubsK" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubsK.png');"></div>
+            <div class="clubsQ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardClubsQ.png');"></div>
+            <div class="diamonds2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds2.png');"></div>
+            <div class="diamonds3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds3.png');"></div>
+            <div class="diamonds4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds4.png');"></div>
+            <div class="diamonds5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds5.png');"></div>
+            <div class="diamonds6" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds6.png');"></div>
+            <div class="diamonds7" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds7.png');"></div>
+            <div class="diamonds8" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds8.png');"></div>
+            <div class="diamonds9" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds9.png');"></div>
+            <div class="diamonds10" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamonds10.png');"></div>
+            <div class="diamondsA" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamondsA.png');"></div>
+            <div class="diamondsJ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamondsJ.png');"></div>
+            <div class="diamondsK" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamondsK.png');"></div>
+            <div class="diamondsQ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardDiamondsQ.png');"></div>
+            <div class="hearts2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts2.png');"></div>
+            <div class="hearts3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts3.png');"></div>
+            <div class="hearts4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts4.png');"></div>
+            <div class="hearts5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts5.png');"></div>
+            <div class="hearts6" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts6.png');"></div>
+            <div class="hearts7" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts7.png');"></div>
+            <div class="hearts8" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts8.png');"></div>
+            <div class="hearts9" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts9.png');"></div>
+            <div class="hearts10" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHearts10.png');"></div>
+            <div class="heartsA" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHeartsA.png');"></div>
+            <div class="heartsJ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHeartsJ.png');"></div>
+            <div class="heartsK" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHeartsK.png');"></div>
+            <div class="heartsQ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardHeartsQ.png');"></div>
+            <div class="joker" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardJoker.png');"></div>
+            <div class="spades2" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades2.png');"></div>
+            <div class="spades3" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades3.png');"></div>
+            <div class="spades4" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades4.png');"></div>
+            <div class="spades5" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades5.png');"></div>
+            <div class="spades6" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades6.png');"></div>
+            <div class="spades7" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades7.png');"></div>
+            <div class="spades8" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades8.png');"></div>
+            <div class="spades9" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades9.png');"></div>
+            <div class="spades10" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpades10.png');"></div>
+            <div class="spadesA" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpadesA.png');"></div>
+            <div class="spadesJ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpadesJ.png');"></div>
+            <div class="spadesK" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpadesK.png');"></div>
+            <div class="spadesQ" style="background-image: url('../CasinoAssets/BlackJack/Cards/cardSpadesQ.png');"></div>
+        </div>
+
+        <div class="table" style="background-image: url('../CasinoAssets/BlackJack/BlackJackTable.png');"></div>
+    </div>
+</body>
+<footer>
+
+</footer>
+
+</html>
