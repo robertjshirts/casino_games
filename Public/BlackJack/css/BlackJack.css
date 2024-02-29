@@ -25,15 +25,31 @@ html{
 }
 
 #actionContainer {
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
     display: flex;
+    position: absolute;
     top: 71.5%;
     width: 30%;
-    /* height: 45px; */
+    height: 45px;
     left: 50%;
-    transform:translateX(-50%)
+    transform:translateX(-50%);
 }
 
 #actionContainer a {
     text-decoration: none;
+}
+
+#actionContainer .genericButton {
+    width: 90px;
+    height: 66px;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 12%;
 }
