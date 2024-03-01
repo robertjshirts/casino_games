@@ -92,3 +92,7 @@ body{
     left: 81.2%;
     top: 87%;
 }
+
+.genericButton:active{
+    background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
+}

@@ -1,0 +1,81 @@
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+
+#board{
+    background-image: url("../../CasinoAssets/Roulette/Roulette_SingleZero.png");
+    background-size: cover;
+    width: 1185;
+    height: 517;
+    left: 20%;
+    top: 22%;
+    position: absolute;
+}
+
+#wheel{
+    background-image: url("../../CasinoAssets/Roulette/RouletteWheel_SingleZero.png");
+    background-size: cover;
+    width: 400;
+    height: 400;
+    top: 42%;
+    position: absolute;
+}
+
+.clone{
+    transform: translate(-50%,-50%);
+}
+
+#boardHitBox{
+    left: 445px;
+    top: 195px;
+    position: absolute;
+    background-color: transparent;
+    width: 1005px;
+    height: 370px;
+    opacity: .5;
+}
+
+#outcome{    
+    visibility: hidden;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    font-size: 150;
+    line-height: 200px;
+
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 3%;
+    top: 18%;
+}
+
+.red{
+    background-image: url("../../CasinoAssets/Roulette/CircleRed.png");
+}
+
+.black{
+    background-image: url("../../CasinoAssets/Roulette/CircleBlack.png");
+}
+
+.green{
+    background-image: url("../../CasinoAssets/Roulette/CircleGreen.png");
+}
+
+
+#wheel:hover{
+    animation: spin 2s infinite linear;
+}
+
+#actionButton:active{
+    
+}
