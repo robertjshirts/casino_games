@@ -52,3 +52,18 @@ html{
     width: 1114px;
     height: 696px;
 }
+
+#output {
+    /* visibility: hidden; */
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 45%;
+    font-size: larger;
+    font-weight: 800;
+    background-color: aliceblue;
+    width: 150px;
+    height: 55px;
+    text-align: center;
+    border-radius: 5%;
+}
