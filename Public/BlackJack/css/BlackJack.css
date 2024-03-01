@@ -131,6 +131,47 @@ html{
     z-index: 3;
 }
 
+#rulesContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12%;
+    z-index: 5;
+    text-align: center;
+    border: 5px black dashed;
+    border-radius: 10%;
+    background-color: aliceblue;
+    height: 650px;
+    width: 900px;
+    font-size: 24px;
+    visibility: hidden;
+}
+
+#rulesContainer p {
+    text-align: center;
+    margin: 0;
+    padding-top: 22px;
+}
+
+#rulesContainer pre {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.3px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+#rulesContainer h3 {
+    text-align: left;
+    text-decoration: underline;
+    font-size: 16.2px;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 55px;
+}
+
 /* #output {
     visibility: hidden;
     left: 50%;
