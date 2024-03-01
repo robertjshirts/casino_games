@@ -13,27 +13,16 @@ html{
     visibility: hidden;
 }
 
-.turnButton{
-    background-color:blueviolet;
-    width: 295px;
-    height: 73px;
-    color: black;
-    text-align: center;
-    font-weight:900;
-    font-size: 54px;
-    position:absolute;
-}
-
 #actionContainer {
     align-items: center;
     justify-content: space-evenly;
     display: flex;
     position: absolute;
-    top: 71.5%;
-    width: 30%;
+    top: 75.5%;
+    left: 74.4%;
+    width: 25%;
     height: 45px;
-    left: 50%;
-    transform:translateX(-50%);
+    visibility: hidden;
 }
 
 #actionContainer a {
@@ -52,4 +41,14 @@ html{
     justify-content: center;
     margin: 5px;
     border-radius: 12%;
+}
+
+.table {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url("../../CasinoAssets/BlackJack/BlackJackTable.png");
+    background-size: cover;
+    width: 1114px;
+    height: 696px;
 }
