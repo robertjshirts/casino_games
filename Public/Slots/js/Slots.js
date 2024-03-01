@@ -3,7 +3,7 @@ let options = [];
 initOptions();
 
 //event listen for the spin button
-document.getElementById('spin').addEventListener('click', function() {
+document.getElementById('actionButton').addEventListener('click', function() {
     
     //get 3 randoms
     for (let i = 0; i < 3; i++) {
