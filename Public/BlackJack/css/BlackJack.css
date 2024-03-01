@@ -192,6 +192,13 @@ html{
     transform: scale(.8);
 }
 
+#betBank {
+    left: 82.3%;
+    top: 8.2%;
+    transform: translateX(-50%);
+    transform: scale(.8);
+}
+
 /* #output {
     visibility: hidden;
     left: 50%;
