@@ -172,6 +172,26 @@ html{
     padding-left: 55px;
 }
 
+.genericDiv {
+    background-size: cover;
+    background-color: transparent;
+    width: 295px;
+    height: 73px;
+    color: black;
+    font-weight: 500;
+    font-size: 34px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#balanceContainer {
+    left: 82.3%;
+    transform: translateX(-50%);
+    transform: scale(.8);
+}
+
 /* #output {
     visibility: hidden;
     left: 50%;
