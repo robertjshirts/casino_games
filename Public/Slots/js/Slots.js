@@ -81,6 +81,7 @@ document.getElementById('spin').addEventListener('click', function() {
     let winning = Winnings(slot1, slot2, slot3);
 
     //update the players balance
+    localStorage.cash += winning;
 
 });
 
