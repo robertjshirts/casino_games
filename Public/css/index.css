@@ -1,0 +1,106 @@
+html {
+    background: url("../CasinoAssets/Overall UI/Generic Felt Mat.jpeg");
+    background-size: cover;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    height: 100%;
+    font-kerning: none;
+}
+
+body {
+    height: 100%;
+}
+
+.genericButton {
+    user-select: none;
+    cursor: pointer;
+    background: url("../CasinoAssets/Overall UI/ButtonUp.png");
+    background-size: cover;
+    background-color: transparent;
+    width: 295px;
+    height: 73px;
+    color: black;
+    text-align: center;
+    font-weight: 900;
+    font-size: 54px;
+    position: absolute;
+    transition: width 0.5s, height 0.5s;
+}
+
+#back {
+    left: 1%;
+    top: 87%;
+    visibility: hidden;
+}
+
+#actionButton {
+    left: 81.2%;
+    top: 87%;
+}
+ 
+.gameButton {
+    background-size: cover;
+    width: 100%;
+    padding-top: (height / width * 100);
+}
+
+
+#playButton {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 60%;
+}
+
+#logo {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 32%;
+    width: 706px;
+    background-size: cover;
+    height: 381px;
+    background-image: url("../CasinoAssets/Overall UI/Casino Icon.png");
+}
+
+.gameLogo {
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-size: cover;
+    visibility: hidden;
+    transition: width 0.5s, height 0.5s; 
+    
+}
+
+
+#blackJack {
+    width: 488.5px;
+    height: 286px;
+    background-image: url("../CasinoAssets/Overall UI/Blackjack Icon.png");
+    top: 35%;
+    left: 20%;
+}
+
+#slots {
+    width: 514px;
+    height: 318px;
+    background-image: url("../CasinoAssets/Overall UI/Slot Machine Icon.png");
+    top: 35%;
+    left: 50%;
+}
+
+#roulette {
+    height: 293px;
+    width: 522px;
+    background-image: url("../CasinoAssets/Overall UI/Roulette Icon.png");
+    top: 35%;
+    left: 82%;
+}
+
+.gameLogo:hover{
+    scale: 1.1;
+}
+
+.genericButton:active{
+    background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
+}
