@@ -68,6 +68,15 @@ html{
     transform: scale(.4);
 }
 
+#betContainer {
+    position: absolute;
+    left: 33.7%;
+    transform: translateX(50%);
+    transform: scale(.08);
+    top: 23.5%;
+    z-index: 1;
+}
+
 #playerCard1 {
     position: absolute;
     left: 45.9%;
@@ -198,7 +207,6 @@ html{
     transform: translateX(-50%);
     transform: scale(.8);
 }
-
 /* #output {
     visibility: hidden;
     left: 50%;
