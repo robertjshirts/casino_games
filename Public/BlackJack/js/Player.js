@@ -1,7 +1,7 @@
 class Player {
-    Player(){
+    Player(bet){
         this.hand = []
-        this.bet = 0
+        this.bet = bet
     }
 
     addToHand(card){

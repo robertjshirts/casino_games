@@ -1,8 +1,9 @@
 class Card {
 
-    Card(rank, suit){
+    Card(rank, suit, image){
         this.rank = rank
         this.suit = suit
+        this.image = image
     }
 
     getRank(){
@@ -11,6 +12,10 @@ class Card {
 
     getSuit(){
         return this.suit
+    }
+
+    getImage(){
+        return this.image
     }
 }
 
