@@ -2,8 +2,10 @@
 let options = [];
 initOptions();
 
+var spinbutton = document.getElementById('actionButton');
+
 //event listen for the spin button
-document.getElementById('actionButton').addEventListener('click', function() {
+spinbutton.addEventListener('click', function() {
     
     //get 3 randoms
     for (let i = 0; i < 3; i++) {
@@ -27,42 +29,42 @@ document.getElementById('actionButton').addEventListener('click', function() {
                     case 'lemon':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - lemon.png" alt="lemon" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Lemon.png" alt="lemon" />';
                         break;
                     case 'orange':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - orange.png" alt="orange" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Orange.png" alt="orange" />';
                         break;
                     case 'plum':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - plum.png" alt="plum" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Plum.png" alt="plum" />';
                         break;
                     case 'bell':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - bell.png" alt="bell" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bell.png" alt="bell" />';
                         break;
                     case 'bar':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - bar.png" alt="bar" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bar.png" alt="bar" />';
                         break;
                     case 'seven':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - seven.png" alt="seven" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Seven.png" alt="seven" />';
                         break;
                     case 'banana':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - banana.png" alt="banana" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Banana.png" alt="banana" />';
                         break;
                     case 'melon':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - melon.png" alt="melon" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Melon.png" alt="melon" />';
                         break;
                 }
                 
@@ -73,15 +75,16 @@ document.getElementById('actionButton').addEventListener('click', function() {
 
 
     //read in the slot elements
-    let slot1 = document.getElementById('slot1').innerHTML;
-    let slot2 = document.getElementById('slot2').innerHTML;
-    let slot3 = document.getElementById('slot3').innerHTML;
+    let slot1 = document.getElementById('slot0').innerHTML;
+    let slot2 = document.getElementById('slot1').innerHTML;
+    let slot3 = document.getElementById('slot2').innerHTML;
 
     //call the muliplier function
     let winning = Winnings(slot1, slot2, slot3);
 
     //update the players balance
-    localStorage.cash += winning;
+    localStorage.cash = parseInt(localStorage.cash) + winning;
+    console.log(localStorage.cash);
 
 });
 
@@ -90,14 +93,14 @@ function Winnings(slot1, slot2, slot3) {
     if(slot1 === slot2 && slot2 === slot3) {
         //if 3 of a kind then multiply the bet by 3
 
-        let bet = document.getElementById('bet').value;
+        let bet = parseInt(document.getElementById('bet').innerHTML);
         let multiplier = muliplier(slot1);
 
         return bet * multiplier;
 
     } else {
         //if no matches then the bet is lost
-        let bet = document.getElementById('bet').value;
+        let bet = parseInt(document.getElementById('bet').innerHTML);
         return bet;
     }
 }

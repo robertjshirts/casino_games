@@ -3,8 +3,8 @@
 <head>
     <title>Slots</title>
     <link rel="stylesheet" type="text/css" href="./css/Slots.css">
-    <script src="./js/Slots.js"></script>
-    <script src="./js/Slots-bets.js"></script>
+    <script src="./js/Slots.js" defer></script>
+    <script src="./js/Slots-bets.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../css/variables.css">
 </head>
 
@@ -17,27 +17,34 @@
             <img src="../CasinoAssets/Slots/slotsRules.png"/>
         </div>
 
-        <div class="betText">B E T:</div>
+        <div class="betText">
+            B E T:
+            <div class="player-bet-container" id="bet-container">
+                <p id="bet">
+                    0
+                </p>
+            </div>
+        </div>
 
     <div class="container">
         <div class="slots" style="background-image: url('../CasinoAssets/Slots/Slot\ Machine\ Barrel.png');">
-            <div class="slot1" id="slot1"></div>
-            <div class="slot2" id="slot2"></div>
-            <div class="slot3" id="slot3"></div>
+            <div class="slot1" id="slot0"></div>
+            <div class="slot2" id="slot1"></div>
+            <div class="slot3" id="slot2"></div>
         </div>
     </div>
     <div class="genericButton" id="back">B A C K</div>
     <div class="chipsText">C H I P S:</div>
     <div id="chipContainer">
-        <div class="chip chip1"></div>
-        <div class="chip chip5"></div>
-        <div class="chip chip10"></div>
-        <div class="chip chip20"></div>
-        <div class="chip chip50"></div>
-        <div class="chip chip100"></div>
-        <div class="chip chip500"></div>
-        <div class="chip chip1000"></div>
-        <div class="chip chip5000"></div>
+        <div class="chip chip1" id="chip1"></div>
+        <div class="chip chip5" id="chip5"></div>
+        <div class="chip chip10" id="chip10"></div>
+        <div class="chip chip20" id="chip20"></div>
+        <div class="chip chip50" id="chip50"></div>
+        <div class="chip chip100" id="chip100"></div>
+        <div class="chip chip500" id="chip500"></div>
+        <div class="chip chip1000" id="chip1000"></div>
+        <div class="chip chip5000" id="chip5000"></div>
     </div>
     <div class="genericButton" id="actionButton">S P I N</div>
 </body>
