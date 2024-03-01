@@ -53,6 +53,84 @@ html{
     height: 696px;
 }
 
+.blackJackIcon img {
+    width: 250px; 
+    height: 160px; 
+    position: absolute;
+    left: 20px;
+    top: 25px;
+}
+
+#rulesBtn {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    transform: scale(.4);
+}
+
+#playerCard1 {
+    position: absolute;
+    left: 45.9%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 57.5%;
+    z-index: 1;
+}
+
+#playerCard2 {
+    position: absolute;
+    left: 47%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 59%;
+    z-index: 2;
+}
+
+#playerCard3 {
+    position: absolute;
+    left: 48%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 60.3%;
+    z-index: 3;
+}
+
+#dealerCard1 {
+    position: absolute;
+    left: 45.9%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 2.5%;
+    z-index: 1;
+}
+
+#dealerCard2 {
+    position: absolute;
+    left: 47%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 4%;
+    z-index: 2;
+}
+
+#dealerCard3 {
+    position: absolute;
+    left: 48%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 5.3%;
+    z-index: 3;
+}
+
+#dealerContainer {
+    position: absolute;
+    left: 72.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: -1.5%;
+    z-index: 3;
+}
+
 /* #output {
     visibility: hidden;
     left: 50%;
