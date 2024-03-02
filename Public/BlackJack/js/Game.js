@@ -12,7 +12,7 @@ class Game{
         this.dealCards()
         console.log(this.player.getHand())
         Dispaly.displayPlayerHand(this.player.getHand())
-        // Dispaly.displayDealerHand(this.dealer.getHand())
+        Dispaly.displayDealerHand(this.dealer.getHand())
     }
 
     dealCards = ()=>{
@@ -60,6 +60,9 @@ class Game{
     hit = ()=>{
         this.player.addToHand(this.getCard())
         Dispaly.displayPlayerHand(this.player.getHand())
+        if(this.countCards(this.player.getHand()) > 21){
+            //bust
+        }
     }
 
     doubleDown = ()=>{
@@ -77,7 +80,6 @@ class Game{
     
         if (playerTotal > 21) {
             localStorage.setItem('cash', parseInt(localStorage.getItem('cash')) - bet)
-            Dispaly.diapol
         } else if (dealerTotal > 21) {
             localStorage.setItem('cash', parseInt(localStorage.getItem('cash')) + bet)
             return "Dealer Busts"
@@ -123,6 +125,19 @@ class Game{
             return parseInt(value)
         }
     }   
+
+    dealerPlay = ()=>{
+        dealerDone = false
+        while(!dealerDone){
+            if(this.countCards(this.dealer.getHand()) < 17){
+                this.dealer.addToHand(this.getCard())
+                Dispaly.displayDealerHand(this.dealer.getHand())
+            }
+            else if(this.countCards(this.dealer.getHand()) >= 17){
+                dealerDone = true
+            }
+        }
+    }
 }
 
 export default Game

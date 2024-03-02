@@ -20,12 +20,13 @@ class Display{
         let handContainer = document.getElementById("dealerContainer")
         handContainer.innerHTML = ""
         for(let i = 0; i < hand.length; i++){
-            if(i = 0){
+            if(i == 0){
                 let cardDiv = document.createElement('div')
                 let cardImg = document.createElement('img')
                 cardImg.src = hand[i].getBackImage()
                 cardDiv.appendChild(cardImg)
                 handContainer.appendChild(cardDiv)
+                continue
             }
             let cardDiv = document.createElement('div')
             let cardImg = document.createElement('img')
@@ -36,7 +37,7 @@ class Display{
     }
 
     static displayWin = (message)=>{
-        alert()
+        alert(message)
     }
 }
 

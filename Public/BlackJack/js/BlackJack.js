@@ -16,6 +16,7 @@ document.getElementById('actionButton').addEventListener("click", (ev)=>{
         document.getElementById('splitBtn').style.visibility = "visible"
         document.getElementById("doubleDownBtn").style.visibility = "visible"
         document.getElementById("hitBtn").style.visibility = "visible"
+        document.getElementById("standBtn").style.visibility = "visible"
     }
 })
 
