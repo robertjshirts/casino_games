@@ -1,9 +1,10 @@
 class Card {
 
-    constructor(rank, suit, image){
+    constructor(rank, suit, image, backImage){
         this.rank = rank
         this.suit = suit
         this.image = image
+        this.backImage = backImage
     }
 
     getRank(){
@@ -16,6 +17,10 @@ class Card {
 
     getImage(){
         return this.image
+    }
+
+    getBackImage(){
+        return this.backImage
     }
 }
 

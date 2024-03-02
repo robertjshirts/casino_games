@@ -20,9 +20,12 @@ document.getElementById('actionButton').addEventListener("click", (ev)=>{
 })
 
 document.getElementById('hitBtn').addEventListener("click", ()=>{
+    game.hit()
 })
 
 document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
+    bet = game.doubleDown()
+    document.getElementById("betBank").textContent = "BET:" + bet
 })
 
 document.getElementById('splitBtn').addEventListener("click", ()=>{

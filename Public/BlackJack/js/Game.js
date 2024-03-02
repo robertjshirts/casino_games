@@ -12,14 +12,14 @@ class Game{
         this.dealCards()
         console.log(this.player.getHand())
         Dispaly.displayPlayerHand(this.player.getHand())
-        // Display.displayDealerHand(this.dealer.getHand)
+        // Dispaly.displayDealerHand(this.dealer.getHand())
     }
 
     dealCards = ()=>{
-        this.player.addToHand(this.hit())
-        this.player.addToHand(this.hit()) 
-        this.dealer.addToHand(this.hit())
-        this.dealer.addToHand(this.hit())
+        this.player.addToHand(this.getCard())
+        this.player.addToHand(this.getCard()) 
+        this.dealer.addToHand(this.getCard())
+        this.dealer.addToHand(this.getCard())
         this.checkForWin()
     }
 
@@ -30,7 +30,7 @@ class Game{
 
         for(let suit of suits){
             for(let rank of ranks){
-                const card = new Card(suit, rank, '../CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png")
+                const card = new Card(suit, rank, '../CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png", '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
                 deck.push(card)
             }
         }
@@ -50,16 +50,23 @@ class Game{
         return array
     }
 
-    hit = ()=>{
+    getCard = ()=>{
         const index = Math.floor(Math.random() * this.deck.length)
         const card = this.deck[index]
         this.deck.splice(index, 1)
         return card
     }
 
+    hit = ()=>{
+        this.player.addToHand(this.getCard())
+        Dispaly.displayPlayerHand(this.player.getHand())
+    }
+
     doubleDown = ()=>{
         this.player.addBet(this.player.bet * 2)
-        this.deck = hit(this/player)
+        this.player.addToHand(this.getCard())
+        Dispaly.displayPlayerHand(this.player.getHand())
+        return this.player.getBet()
         //check for win immediately after 
     }
 
@@ -70,7 +77,7 @@ class Game{
     
         if (playerTotal > 21) {
             localStorage.setItem('cash', parseInt(localStorage.getItem('cash')) - bet)
-            return "Player Busts"
+            Dispaly.diapol
         } else if (dealerTotal > 21) {
             localStorage.setItem('cash', parseInt(localStorage.getItem('cash')) + bet)
             return "Dealer Busts"
@@ -94,9 +101,14 @@ class Game{
     }
 
     countCards = (hand)=>{
+        if(hand == undefined || hand.length == 0){
+            return 0
+        }
+
         let amount = 0
         for(let i = 0; i < hand.length; i++){
-            amount += this.convertCard(hand[i])
+            amount += 
+            this.convertCard(hand[i])
         }
         return amount
     }
