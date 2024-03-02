@@ -31,6 +31,10 @@ document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
 document.getElementById('splitBtn').addEventListener("click", ()=>{
 })
 
+document.getElementById('back').addEventListener("click", ()=>{
+    window.history.back()
+})
+
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]
     for (let i = 0; i < chips.length; i++) {
