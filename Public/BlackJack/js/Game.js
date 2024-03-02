@@ -1,5 +1,5 @@
-import Card from '/Card.js'
-import Player from '.Player.js'
+import Card from './Card.js'
+import Player from './Player.js'
 import Dealer from './Dealer.js'
 
 class Game{
@@ -26,7 +26,7 @@ class Game{
 
         for(let suit of suits){
             for(let rank of ranks){
-                const card = new Card(suit, rank, 'Public/CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png")
+                const card = new Card(suit, rank, './Public/CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png")
                 deck.push(card)
             }
         }
@@ -108,3 +108,5 @@ class Game{
         }
     }   
 }
+
+export default Game
