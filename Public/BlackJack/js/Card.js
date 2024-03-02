@@ -1,6 +1,6 @@
 class Card {
 
-    Card(rank, suit, image){
+    constructor(rank, suit, image){
         this.rank = rank
         this.suit = suit
         this.image = image

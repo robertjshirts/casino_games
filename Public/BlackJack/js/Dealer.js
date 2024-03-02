@@ -1,6 +1,6 @@
 class Dealer {
 
-    Dealer(){
+    constructor(){
         this.hand = []
     }
 

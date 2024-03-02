@@ -1,5 +1,5 @@
 class Player {
-    Player(bet){
+    constructor(bet){
         this.hand = []
         this.bet = bet
     }

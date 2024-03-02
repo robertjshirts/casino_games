@@ -1,26 +1,30 @@
 import Card from './Card.js'
 import Player from './Player.js'
 import Dealer from './Dealer.js'
+import Dispaly from './Display.js'
 
 class Game{
 
-    Game = (bet)=>{
-        this.deck = createDeck()
+    constructor(bet){
+        this.deck = this.createDeck()
         this.player = new Player(bet)
         this.dealer = new Dealer()
         this.dealCards()
+        console.log(this.player.getHand())
+        Dispaly.displayPlayerHand(this.player.getHand())
+        // Display.displayDealerHand(this.dealer.getHand)
     }
 
     dealCards = ()=>{
         this.player.addToHand(this.hit())
         this.player.addToHand(this.hit()) 
-        this.dealer.addToHand(this,hit())
+        this.dealer.addToHand(this.hit())
         this.dealer.addToHand(this.hit())
         this.checkForWin()
     }
 
     createDeck = ()=>{
-        deck = []
+        let deck = []
         const suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
         const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K", "A"]
 
@@ -30,8 +34,8 @@ class Game{
                 deck.push(card)
             }
         }
-        
-        return shuffle(deck)
+
+        return this.shuffle(deck)
     }
 
     shuffle = (array) => {
@@ -47,10 +51,10 @@ class Game{
     }
 
     hit = ()=>{
-        const index = Math.random(0, this.deck.length)
+        const index = Math.floor(Math.random() * this.deck.length)
         const card = this.deck[index]
-        this.player.addToHand(card)
         this.deck.splice(index, 1)
+        return card
     }
 
     doubleDown = ()=>{
@@ -60,8 +64,8 @@ class Game{
     }
 
     checkForWin = () => {
-        let playerTotal = countCards(this.player.getHand())
-        let dealerTotal = countCards(this.dealer.getHand())
+        let playerTotal = this.countCards(this.player.getHand())
+        let dealerTotal = this.countCards(this.dealer.getHand())
         let bet = this.player.getBet()
     
         if (playerTotal > 21) {
@@ -91,8 +95,8 @@ class Game{
 
     countCards = (hand)=>{
         let amount = 0
-        for(let card of hand){
-            amount += convertCard(card, amount)
+        for(let i = 0; i < hand.length; i++){
+            amount += this.convertCard(hand[i])
         }
         return amount
     }

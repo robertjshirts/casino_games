@@ -7,7 +7,12 @@ let bet = 0
 
 document.getElementById('actionButton').addEventListener("click", (ev)=>{
     console.log("Button Clicked")
-    game = new Game(bet)
+    if(bet == 0){
+        alert("Must have a bet")
+    }
+    else{
+        game = new Game(bet)
+    }
 })
 
 // document.getElementById('hitbutton').addEventListener("click", (ev)=>{
@@ -19,6 +24,7 @@ document.getElementById('actionButton').addEventListener("click", (ev)=>{
 //     ev.preventDefault()
 //     game.doubleDown()
 // })
+
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]
     for (let i = 0; i < chips.length; i++) {
@@ -26,6 +32,7 @@ const setOnClick = ()=>{
             let chipValue = chips[i]
             bet += chipValue
             console.log(bet)
+            document.getElementById("betBank").textContent = "BET:" + bet
         })
     }
 }
