@@ -12,18 +12,21 @@ document.getElementById('actionButton').addEventListener("click", (ev)=>{
     }
     else{
         game = new Game(bet)
+        document.getElementById('actionButton').style.visibility = "hidden"
+        document.getElementById('splitBtn').style.visibility = "visible"
+        document.getElementById("doubleDownBtn").style.visibility = "visible"
+        document.getElementById("hitBtn").style.visibility = "visible"
     }
 })
 
-// document.getElementById('hitbutton').addEventListener("click", (ev)=>{
-//     ev.preventDefault()
-//     game.hit()
-// })
+document.getElementById('hitBtn').addEventListener("click", ()=>{
+})
 
-// document.getElementById('doubleDownButton').addEventListener("click", (ev)=>{
-//     ev.preventDefault()
-//     game.doubleDown()
-// })
+document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
+})
+
+document.getElementById('splitBtn').addEventListener("click", ()=>{
+})
 
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]

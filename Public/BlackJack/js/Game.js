@@ -30,7 +30,7 @@ class Game{
 
         for(let suit of suits){
             for(let rank of ranks){
-                const card = new Card(suit, rank, './Public/CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png")
+                const card = new Card(suit, rank, '../CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png")
                 deck.push(card)
             }
         }
