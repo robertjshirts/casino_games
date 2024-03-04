@@ -14,6 +14,7 @@ class Game{
         console.log(this.player.getHand())
         Display.displayPlayerHand(this.player.getHand())
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
+        Display.displayDeck(this.deck)
     }
 
     dealCards = ()=>{
@@ -62,6 +63,7 @@ class Game{
     hit = ()=>{
         this.player.addToHand(this.getCard())
         Display.displayPlayerHand(this.player.getHand())
+        Display.displayDeck(this.deck)
         this.isBust(this.player)
     }
 
@@ -70,6 +72,7 @@ class Game{
         this.player.addToHand(this.getCard())
         Display.changeBet(this.player.getBet())
         Display.displayPlayerHand(this.player.getHand())
+        Display.displayDeck(this.deck)
         this.isBust(this.player)
         this.dealerTurn()
     }
@@ -169,6 +172,7 @@ class Game{
             if(this.countCards(this.dealer.getHand()) < 17){
                 this.dealer.addToHand(this.getCard())
                 Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
+                Display.displayDeck(this.deck)
                 this.isBust(this.dealer)
             }
             else if(this.countCards(this.dealer.getHand()) >= 17){
