@@ -275,6 +275,69 @@ html{
     transform: translateX(-50%);
     transform: scale(.8);
 }
+
+/* playerCard1 */
+#splitCard1 {
+    position: absolute;
+    left: 31.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 55%;
+    z-index: 1;
+}
+
+/* playerCard2 */
+#splitCard2 {
+    position: absolute;
+    left: 60.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 55%;
+    z-index: 1;
+}
+
+#splitCard3 {
+    position: absolute;
+    left: 32.2%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 57%;
+    z-index: 2;
+}
+
+#splitCard4 {
+    position: absolute;
+    left: 61.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 56.5%;
+    z-index: 2;
+}
+
+#splitCard5 {
+    position: absolute;
+    left: 33.1%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 58.7%;
+    z-index: 3;
+}
+
+#splitCard6 {
+    position: absolute;
+    left: 62.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 57.7%;
+    z-index: 3;
+}
+
 /* #output {
     visibility: hidden;
     left: 50%;

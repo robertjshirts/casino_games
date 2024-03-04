@@ -54,7 +54,7 @@ class Display{
         }
     }
 
-    static displayDeck = (deck)=>{
+    // static displayDeck = (deck)=>{
     // let deckContainer = document.getElementById("deckContainer")
     // deckContainer.innerHTML = ""
     // for(let i = 0; i < deck.length; i++){
@@ -65,7 +65,7 @@ class Display{
     //     cardDiv.id = 'deckCard' + (i + 1);
     //     deckContainer.appendChild(cardDiv)
     // }
-    }
+    // }
 
     static changeBet = (bet)=>{
         document.getElementById("betBank").textContent = "BET:" + bet
