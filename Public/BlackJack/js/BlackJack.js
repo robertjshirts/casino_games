@@ -31,9 +31,9 @@ document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
 document.getElementById('splitBtn').addEventListener("click", ()=>{
 })
 
-document.getElementById('back').addEventListener("click", ()=>{
-    window.history.back()
-})
+document.getElementById('back').addEventListener("click", () => {
+    window.location.href = "http://localhost:8080";
+});
 
 document.getElementById('standBtn').addEventListener("click", ()=>{
     game.dealerTurn()
