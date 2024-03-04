@@ -11,7 +11,6 @@ class Game{
         this.player = new Player(bet)
         this.dealer = new Dealer()
         this.dealCards()
-        console.log(this.player.getHand())
         Display.displayPlayerHand(this.player.getHand())
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
         Display.displayDeck(this.deck)
@@ -144,19 +143,45 @@ class Game{
         if(hand == undefined || hand.length == 0){
             return 0
         }
+        hand = this.checkForAce(hand)
 
         let amount = 0
         for(let i = 0; i < hand.length; i++){
             let card = hand[i]
-            let cardValue = this.convertCard(card)
+            let cardValue = this.convertCard(card, amount)
             amount += cardValue
         }
         return amount
     }
 
-    convertCard = (card) => {
+    checkForAce = (hand)=>{
+        let newHand = []
+        let aceHand = []
+        for(let i = 0; i < hand.length; i++){
+            if(hand[i].rank == "A"){
+                aceHand.push(hand[i])
+                continue
+            }
+            newHand.push(hand[i])
+        }
+
+        if(aceHand.length > 0){
+            newHand.push(...aceHand)
+        }
+
+        console.log("new hand")
+        console.log(newHand)
+
+        return newHand
+    } 
+
+    convertCard = (card, amount) => {
+
         let value = card.rank;
         if (value === "A") {
+            if(amount + 11 > 21){
+                return 1
+            }
             return 11
         } else if (['J', 'Q', 'K'].includes(value)) {
             return 10;
@@ -184,7 +209,6 @@ class Game{
     }
 
     gameOver = ()=>{
-        console.log(this.countCards(this.dealer.getHand()))
         this.isGameOver = true
         Display.resetDisplay()
     }
