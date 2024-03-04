@@ -12,29 +12,58 @@ class Display{
             let cardImg = document.createElement('img')
             cardImg.src = hand[i].getImage()
             cardDiv.appendChild(cardImg)
+            cardDiv.id = 'playerCard' + (i + 1);
             handContainer.appendChild(cardDiv)
         }
     }
 
     static displayDealerHand = (hand)=>{
-        let handContainer = document.getElementById("dealerContainer")
-        handContainer.innerHTML = ""
+        let dealerContainer = document.getElementById("dealerContainer")
+        dealerContainer.innerHTML = ""
         for(let i = 0; i < hand.length; i++){
-            if(i == 0){
-                let cardDiv = document.createElement('div')
-                let cardImg = document.createElement('img')
-                cardImg.src = hand[i].getBackImage()
-                cardDiv.appendChild(cardImg)
-                handContainer.appendChild(cardDiv)
-                continue
-            }
             let cardDiv = document.createElement('div')
             let cardImg = document.createElement('img')
             cardImg.src = hand[i].getImage()
             cardDiv.appendChild(cardImg)
-            handContainer.appendChild(cardDiv)
+            cardDiv.id = 'dealerCard' + (i + 1);
+            dealerContainer.appendChild(cardDiv)
         }
     }
+
+    static displayDeck = (hand)=>{
+        let deckContainer = document.getElementById("deckContainer")
+        deckContainer.innerHTML = ""
+        for(let i = 0; i < hand.length; i++){
+            let cardDiv = document.createElement('div')
+            let cardImg = document.createElement('img')
+            cardImg.src = hand[i].getImage()
+            cardDiv.appendChild(cardImg)
+            cardDiv.id = 'deckCard' + (i + 1);
+            deckContainer.appendChild(cardDiv)
+        }
+    }
+
+        // static displayDeck = (hand)=>{
+    //     let deckContainer = document.getElementById("deckContainer")
+    //     deckContainer.innerHTML = ""
+    //     for(let i = 0; i < hand.length; i++){
+    //         if(i == 0){
+    //             let cardDiv = document.createElement('div')
+    //             let cardImg = document.createElement('img')
+    //             cardImg.src = hand[i].getBackImage()
+    //             cardDiv.appendChild(cardImg)
+    //             cardDiv.id = 'deckCard' + (i + 1);
+    //             deckContainer.appendChild(cardDiv)
+    //             continue
+    //         }
+    //         let cardDiv = document.createElement('div')
+    //         let cardImg = document.createElement('img')
+    //         cardImg.src = hand[i].getImage()
+    //         cardDiv.appendChild(cardImg)
+    //         cardDiv.id = 'deckCard' + (i + 1);
+    //         deckContainer.appendChild(cardDiv)
+    //     }
+    // }
 
     static displayWin = (message)=>{
         alert(message)

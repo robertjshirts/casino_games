@@ -7,9 +7,13 @@ html{
     font-kerning: none;
 }
 
+.genericButton:active{
+    background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
+}
+
 #standBtn {
     left: 81.2%;
-    top: 78%;
+    top: 87%;
     visibility: hidden;
 }
 
@@ -41,6 +45,7 @@ html{
     justify-content: center;
     margin: 5px;
     border-radius: 12%;
+    z-index: 2;
 }
 
 .table {
@@ -104,6 +109,24 @@ html{
     z-index: 3;
 }
 
+#playerCard4 {
+    position: absolute;
+    left: 49%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 61.3%;
+    z-index: 4;
+}
+
+#playerCard5 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 62.3%;
+    z-index: 5;
+}
+
 #dealerCard1 {
     position: absolute;
     left: 45.9%;
@@ -131,13 +154,58 @@ html{
     z-index: 3;
 }
 
-#dealerContainer {
+#dealerCard4 {
+    position: absolute;
+    left: 49%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 6.3%;
+    z-index: 4;
+}
+
+#dealerCard5 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 7.3%;
+    z-index: 5;
+}
+
+#deckCard1 {
     position: absolute;
     left: 72.3%;
     transform: translateX(50%);
     transform: scale(.5);
     top: -1.5%;
+    z-index: 1;
+}
+
+#deckCard2 {
+    position: absolute;
+    left: 73.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: -.1%;
+    z-index: 2;
+}
+
+#deckCard3 {
+    position: absolute;
+    left: 74.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: .9%;
     z-index: 3;
+}
+
+#deckCard4 {
+    position: absolute;
+    left: 75.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 2%;
+    z-index: 4;
 }
 
 #rulesContainer {

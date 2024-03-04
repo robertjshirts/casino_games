@@ -26,14 +26,15 @@ document.getElementById('hitBtn').addEventListener("click", ()=>{
 
 document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
     bet = game.doubleDown()
-    document.getElementById("betBank").textContent = "BET:" + bet
+    document.getElementById("betBank").textContent = "BET: " + bet
 })
 
 document.getElementById('splitBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('back').addEventListener("click", ()=>{
-    window.history.back()
+    window.location.href = 'index.html';
+    alert("hello")
 })
 
 const setOnClick = ()=>{
@@ -43,7 +44,7 @@ const setOnClick = ()=>{
             let chipValue = chips[i]
             bet += chipValue
             console.log(bet)
-            document.getElementById("betBank").textContent = "BET:" + bet
+            document.getElementById("betBank").textContent = "BET: " + bet
         })
     }
 }
