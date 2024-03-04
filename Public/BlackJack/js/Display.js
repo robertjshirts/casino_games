@@ -17,10 +17,21 @@ class Display{
         }
     }
 
-    static displayDealerHand = (hand)=>{
+    static displayDealerHand = (hand, gameOver)=>{
         let dealerContainer = document.getElementById("dealerContainer")
         dealerContainer.innerHTML = ""
         for(let i = 0; i < hand.length; i++){
+
+            if(i == 0 && !gameOver){
+                let cardDiv = document.createElement('div')
+                let cardImg = document.createElement('img')
+                cardImg.src = hand[i].getBackImage()
+                cardDiv.appendChild(cardImg)
+                cardDiv.id = 'dealerCard' + (i + 1);
+                dealerContainer.appendChild(cardDiv)
+                continue
+            }
+
             let cardDiv = document.createElement('div')
             let cardImg = document.createElement('img')
             cardImg.src = hand[i].getImage()
@@ -65,8 +76,17 @@ class Display{
     //     }
     // }
 
-    static displayWin = (message)=>{
-        alert(message)
+    static changeBet = (bet)=>{
+        document.getElementById("betBank").textContent = "BET:" + bet
+    }
+
+    static resetDisplay = ()=>{
+        document.getElementById("betBank").textContent = "BET:0";
+        document.getElementById('actionButton').style.visibility = "visible"
+        document.getElementById('splitBtn').style.visibility = "hidden"
+        document.getElementById("doubleDownBtn").style.visibility = "hidden"
+        document.getElementById("hitBtn").style.visibility = "hidden"
+        document.getElementById("standBtn").style.visibility = "hidden"
     }
 }
 

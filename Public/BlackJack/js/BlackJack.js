@@ -5,8 +5,8 @@ import Dealer from './Dealer.js'
 let game
 let bet = 0
 
-document.getElementById('actionButton').addEventListener("click", (ev)=>{
-    console.log("Button Clicked")
+document.getElementById('actionButton').addEventListener("click", ()=>{
+    isBetCorrect()
     if(bet == 0){
         alert("Must have a bet")
     }
@@ -25,27 +25,35 @@ document.getElementById('hitBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
-    bet = game.doubleDown()
-    document.getElementById("betBank").textContent = "BET: " + bet
+    game.doubleDown()
 })
 
 document.getElementById('splitBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('back').addEventListener("click", ()=>{
-    window.location.href = 'index.html';
-    alert("hello")
+    window.history.back()
+})
+
+document.getElementById('standBtn').addEventListener("click", ()=>{
+    game.dealerTurn()
 })
 
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]
     for (let i = 0; i < chips.length; i++) {
         document.getElementById("chip" + chips[i]).addEventListener("click", ()=>{
+            isBetCorrect()
             let chipValue = chips[i]
             bet += chipValue
-            console.log(bet)
-            document.getElementById("betBank").textContent = "BET: " + bet
+            document.getElementById("betBank").textContent = "BET:" + bet
         })
+    }
+}
+
+const isBetCorrect = ()=>{
+    if(document.getElementById("betBank").textContent.split(':')[1] != bet){
+        bet = parseInt(document.getElementById("betBank").textContent.split(':')[1])
     }
 }
 
