@@ -238,18 +238,122 @@ actionButton.addEventListener('click', (ev) => {
     updateOutcomeElement(outcome);
     let tabulatedBets = tabulateBets();
     for (let bet in tabulatedBets) {
-        localStorage.cash += roulette.CalculatePayout(bet);
+        for (let number in bet) {
+            // Add complex type intead of array to allow for amount variable on an individual bet
+            localStorage.cash = Number(localStorage.cash) - number;
+            localStorage.cash = Number(localStorage.cash) + roulette.CalculatePayout(number);
+            console.log(`bet was ${bet}`);
+        }
     }
 });
 
+
+
 function updateOutcomeElement(outcome) {
     outcomeElement.innerHTML = outcome;
+    outcomeElement.style.visibility = 'visible';
     outcomeElement.classList.remove('red', 'green', 'black');
     outcomeElement.classList.add(roulette.wheelColor);
 }
 
+
 function tabulateBets() {
+    let tabulatedBets = [];
     for (let bet of bets) {
-        //TODO: This
+        // Return if not valid bet
+        if (!isValidBet(bet)) {
+            return;
+        }
+
+        // Handle complex bet types
+        if (bet.type === 'complex') {
+            return;
+        } else {
+            tabulatedBets.push(convertRowColToBet(bet));
+        }
     }
+    return tabulatedBets;
+}
+
+function convertRowColToBet(bet) {
+    // Handle the 0th col (bets include 0)
+    // TODO: Refactor this one
+    const row = bet.row;
+    const col = bet.col;
+    if (col === 0 && row === 0) {
+        return [0, 1, 2, 3];
+    }
+
+    if (col === 0 && (row % 2 === 1)) {
+        let upperVal = 3;
+        let offset = Math.floor(row / 2);
+        let val = upperVal - offset;
+        return [0, val]
+    }
+
+    if (col === 0 && (row % 2 === 0)) {
+        let upperVal = 3;
+        let offset = row / 2 - 1;
+        let val = upperVal - offset;
+        return [0, val, val - 1]
+    }
+
+    // When there is an odd row/col, it means that it is on the junction
+    // between two numbers, not squarely on a single numbers row/col
+
+    // Handle street bets (row is 0, col is odd) (bets on a single col of #'s)
+    if (row === 0 && (col % 2 === 1)) {
+        let upperVal = Math.ceil(col / 2) * 3;
+        return [upperVal, upperVal - 1, upperVal - 2];
+    }
+
+    // Handle six line bets (row is 0, col is even) (bets on two cols of #'s)
+    if (row === 0 && (col % 2 === 0)) {
+        let upperVal = (Math.ceil(col / 2) * 3) + 3;
+        return [upperVal, upperVal - 1, upperVal - 2,
+            upperVal - 3, upperVal - 4, upperVal - 5];
+    }
+
+    // Handle straight up bet (odd row, odd col) (bets on a single number)
+    if ((row % 2 === 1) && (col % 2 === 1)) {
+        let upperVal = Math.ceil(col / 2) * 3;
+        let offset = Math.floor(row / 2);
+        let val = upperVal - offset;
+        return [val];
+    }
+
+    // Handle horizontal split bets (odd row, even col) (bets on two numbers)
+    if ((row % 2 === 1) && (col % 2 === 0)) {
+        let upperVal = (col / 2) * 3;
+        let offset = Math.floor(row / 2);
+        let val = upperVal - offset;
+        return [val, val - 3];
+    }
+
+    // Handle vertical split bets (even row, odd col) (bet on two numbers)
+    if ((row % 2 === 0) && (col % 2 === 1)) {
+        let upperVal = Math.ceil(col / 2) * 3;
+        let offset = row / 2;
+        let val = upperVal - offset;
+        return [val, val - 1];
+    }
+
+    // Handle corner bets (even row, even col) (bet on four numbers)
+    if ((row % 2 === 0) && (col % 2 === 0)) {
+        let upperVal = (col / 2) * 3;
+        let offset = (row / 2) - 1;
+        let val = upperVal - offset;
+        return [val, val - 1, val + 3, val + 2];
+    }
+
+    alert(`There was a fucking issue with parsing a bet row ${row} col ${col}`);
+}
+
+function isValidBet(bet) {
+    if (!bet.hasOwnProperty('type') || !bet.hasOwnProperty('amount'
+        || !bet.hasOwnProperty('row') || !bet.hasOwnProperty('col'))) {
+        alert(`The bet at row ${row} and col ${col} is not valid.\n${bet}`);
+        return false;
+    }
+    return true;
 }
