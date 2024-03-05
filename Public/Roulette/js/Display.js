@@ -3,11 +3,39 @@ let bets = []
 var cursorX = 0
 var cursorY = 0
 
+const actionButton = document.getElementById('actionButton');
+const outcomeElement = document.getElementById('outcome');
+
+actionButton.addEventListener('click', ()=>{
+    var element = document.getElementById('wheel');
+    element.classList.add('spinning');
+    console.log('working')
+    setTimeout(function() {
+      element.classList.remove('spinning');
+    }, 4000); // 3000 milliseconds = 3 seconds
+})
+
+var board = document.getElementById('boardHitBox');
+const firstDozenHitBox = document.getElementById("firstDozen");
+const secondDozenHitBox = document.getElementById("secondDozen");
+const thirdDozenHitBox = document.getElementById("thirdDozen");
+const bottomRowHitBox = document.getElementById("bottomRow");
+const middleRowHitBox = document.getElementById("middleRow");
+const topRowHitBox = document.getElementById("topRow");
+const bottomHalfHitBox = document.getElementById("bottomHalf");
+const upperHalfHitBox = document.getElementById("upperHalf");
+const evenHitBox = document.getElementById("even");
+const oddHitBox = document.getElementById("odd");
+const redHitBox = document.getElementById("red");
+const blackHitBox = document.getElementById("black");
+const zeroHitBox = document.getElementById("zero");
 
 
 
-var hitBox = document.getElementById('boardHitBox');
-var rect = hitBox.getBoundingClientRect();
+const hitBoxes = [firstDozenHitBox,secondDozenHitBox,thirdDozenHitBox,bottomRowHitBox,middleRowHitBox,topRowHitBox,bottomHalfHitBox,upperHalfHitBox,evenHitBox,oddHitBox,redHitBox,blackHitBox,zeroHitBox]
+
+
+var boardHitBox = board.getBoundingClientRect();
 document.addEventListener('mousemove', function (e) {
     cursorX = e.clientX;
     cursorY = e.clientY;
@@ -31,16 +59,75 @@ document.addEventListener('mousedown', function (e) {
         document.addEventListener('mousemove', move);
 
         clone.addEventListener('mouseup', function () {
+            let amount = 0;
+            var classesToCheck = [
+                'chip1',
+                'chip5',
+                'chip10',
+                'chip20',
+                'chip50',
+                'chip100',
+                'chip500',
+                'chip1000',
+                'chip5000'
+            ];
+            let chipClass = null
+        
+            for (var i = 0; i < classesToCheck.length; i++) {
+                if (clone.classList.contains(classesToCheck[i])) {
+                    chipClass = classesToCheck[i];
+                    break;
+                }
+            }
+        
+            switch (chipClass) {
+                case 'chip1':
+                    amount = 1
+                    break;
+                case 'chip5':
+                    amount = 5
+                    break;
+                case 'chip10':
+                    amount = 10
+                    break;
+                case 'chip20':
+                    amount = 20
+                    break;
+                case 'chip50':
+                    amount = 50
+                    break;
+                case 'chip100':
+                    amount = 100
+                    break;
+                case 'chip500':
+                    amount = 500
+                    break;
+                case 'chip1000':
+                    amount = 1000
+                    break;
+                case 'chip5000':
+                    amount = 5000
+                    break;
+        
+            }
+        
             document.removeEventListener('mousemove', move);
+            let x = cursorX +0
+            let y = cursorY +0
+            if (x >= boardHitBox.left && x <= boardHitBox.right && y >= boardHitBox.top && y <= boardHitBox.bottom) {
 
-            let x = cursorX - rect.left
-            let y = cursorY - rect.top
-            snapX = (Math.floor(x / 40) * 41) + 13;
-            snapY = (Math.floor(y / 55) * 57) + 15
-            clone.style.left = snapX + rect.left
-            clone.style.top = snapY + rect.top
+            x = cursorX - boardHitBox.left
+            y = cursorY - boardHitBox.top
+            let snapX = (Math.floor(x / 40) * 41) + 13;
+            let snapY = (Math.floor(y / 55) * 57) + 15
+            clone.style.left = snapX + boardHitBox.left
+            clone.style.top = snapY + boardHitBox.top
 
-            addBet(x, y, clone)
+            addBasicBet(x, y, clone, amount)
+
+            }else{
+                addComplexBet(x,y,clone, amount)
+            }
 
         });
 
@@ -51,59 +138,32 @@ document.addEventListener('mousedown', function (e) {
 //24 columns
 //6 rows        
 
-function addBet(x, y, element) {
-    let cList = element.classList
-    let amount = 0;
-    var classesToCheck = [
-        'chip1',
-        'chip5',
-        'chip10',
-        'chip20',
-        'chip50',
-        'chip100',
-        'chip500',
-        'chip1000',
-        'chip5000'
-    ];
-    chipClass = null
-
-    for (var i = 0; i < classesToCheck.length; i++) {
-        if (element.classList.contains(classesToCheck[i])) {
-            chipClass = classesToCheck[i];
-            break;
+function addComplexBet(x,y,element,amount){
+let location = null
+    hitBoxes.every((e) =>{
+        let box = e.getBoundingClientRect()
+        if (x >= box.left && x <= box.right && y >= box.top && y <= box.bottom) {
+            location = e.id;
+            return false;
         }
-    }
+        return true;
+    })
+    if(location == null){
+        element.style.visibility = 'hidden'
+        return;
+    }else{
+        bets.push({
+            'type':'complex',
+            'bet':location,
+            'amount':amount
 
-    switch (chipClass) {
-        case 'chip1':
-            amount = 1
-            break;
-        case 'chip5':
-            amount = 5
-            break;
-        case 'chip10':
-            amount = 10
-            break;
-        case 'chip20':
-            amount = 20
-            break;
-        case 'chip50':
-            amount = 50
-            break;
-        case 'chip100':
-            amount = 100
-            break;
-        case 'chip500':
-            amount = 500
-            break;
-        case 'chip1000':
-            amount = 1000
-            break;
-        case 'chip5000':
-            amount = 5000
-            break;
-
+        })
     }
+    
+    console.log(bets)
+}
+
+function addBasicBet(x, y, element, amount) {
 
 
     let col = Math.floor((x / 40))
@@ -113,12 +173,13 @@ function addBet(x, y, element) {
     }
 
     let row = Math.floor(y / 55)
-    if (row > 5 || col < 0) {
+    if (row > 5 || row < 0) {
         element.style.visibility = 'hidden'
         return;
     }
 
     let bet = {
+        'type':"basic",
         'row': row,
         'col': col,
         'amount': amount
@@ -130,13 +191,14 @@ function addBet(x, y, element) {
 
 
 //{
+//     'type':basic
 //     'col':3,
 //     'row':2,
 //     'amount':5
 // }
 
 // special Enum
-    //firstDozen,
+    // firstDozen,
     // secondDozen,
     // thirdDozen,
     // bottomRow,
@@ -148,7 +210,7 @@ function addBet(x, y, element) {
     // odd,
     // red,
     // black,
-    // zero
+    // zero,
 
 /////
 
@@ -156,8 +218,6 @@ import { Roulette } from './Game.js';
 
 const roulette = new Roulette();
 
-const actionButton = document.getElementById('actionButton');
-const outcomeElement = document.getElementById('outcome');
 
 actionButton.addEventListener('click', (ev) => {
     let outcome = roulette.Spin();
