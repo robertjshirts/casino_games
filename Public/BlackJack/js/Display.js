@@ -79,6 +79,7 @@ class Display{
         document.getElementById("hitBtn").style.visibility = "hidden"
         document.getElementById("standBtn").style.visibility = "hidden"
     }
+
 }
 
 export default Display

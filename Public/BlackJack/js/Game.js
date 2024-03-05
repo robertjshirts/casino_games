@@ -52,6 +52,31 @@ class Game{
         return array
     }
 
+    split = ()=>{
+        if(this.checkForPair){
+
+        }
+        alert("you can only split when you have a pair")
+    }
+
+    checkForPair = ()=>{
+        for(let i = 0; i < this.player.getHand().length; i++){
+
+            for(let j = 0; j < this.player.getHand().length; j++){
+
+                if(i == j){
+                    continue
+                }
+
+                if(this.convertCard(this.player.getHand()[i], 0) === this.convertCard(this.player.getHand()[j], 0)){
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
     getCard = ()=>{
         const index = Math.floor(Math.random() * this.deck.length)
         const card = this.deck[index]
@@ -67,6 +92,11 @@ class Game{
     }
 
     doubleDown = ()=>{
+        if(this.player.getHand().length > 2){
+            alert("You can only double down on your first hit")
+            return
+        }
+
         this.player.addBet(this.player.bet * 2)
         this.player.addToHand(this.getCard())
         Display.changeBet(this.player.getBet())
