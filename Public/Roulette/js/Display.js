@@ -165,7 +165,6 @@ let location = null
 
 function addBasicBet(x, y, element, amount) {
 
-
     let col = Math.floor((x / 40))
     if (col > 23 || col < 0) {
         element.style.visibility = 'hidden'
