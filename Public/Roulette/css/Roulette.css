@@ -1,16 +1,17 @@
 @keyframes spin {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
+}
 
 
 
-#board{
+
+#board {
     background-image: url("../../CasinoAssets/Roulette/Roulette_SingleZero.png");
     background-size: cover;
     width: 1185;
@@ -20,7 +21,7 @@
     position: absolute;
 }
 
-#wheel{
+#wheel {
     background-image: url("../../CasinoAssets/Roulette/RouletteWheel_SingleZero.png");
     background-size: cover;
     width: 400;
@@ -29,11 +30,11 @@
     position: absolute;
 }
 
-.clone{
-    transform: translate(-50%,-50%);
+.clone {
+    transform: translate(-50%, -50%);
 }
 
-#boardHitBox{
+#boardHitBox {
     left: 445px;
     top: 195px;
     position: absolute;
@@ -43,7 +44,7 @@
     opacity: .5;
 }
 
-#outcome{    
+#outcome {
     visibility: hidden;
     background-size: cover;
     color: white;
@@ -59,34 +60,36 @@
     top: 18%;
 }
 
-.red{
+.red {
     background-image: url("../../CasinoAssets/Roulette/CircleRed.png");
 }
 
-.black{
+.black {
     background-image: url("../../CasinoAssets/Roulette/CircleBlack.png");
 }
 
-.green{
+.green {
     background-image: url("../../CasinoAssets/Roulette/CircleGreen.png");
 }
 
 
-#wheel:hover{
+#wheel:hover {
     animation: spin 2s infinite linear;
 }
 
-.spinning{
+.spinning {
     animation: spin 2s infinite linear;
 }
 
+#cash {
+    font-size: 57px;
+    position: absolute;
+    color: white;
+    left: 89%;
+    top: 70%;
+}
 
-
-
-
-
-
-#firstDozen{
+#firstDozen {
     position: absolute;
     left: 455px;
     top: 550px;
@@ -94,7 +97,8 @@
     width: 330px;
     height: 90px;
 }
-#secondDozen{
+
+#secondDozen {
     position: absolute;
     opacity: .5;
     left: 785px;
@@ -103,7 +107,8 @@
     height: 90px;
 
 }
-#thirdDozen{
+
+#thirdDozen {
     position: absolute;
     opacity: .5;
     left: 1114px;
@@ -112,7 +117,8 @@
     height: 90px;
 
 }
-#topRow{
+
+#topRow {
     position: absolute;
     opacity: .5;
     left: 1438px;
@@ -120,7 +126,8 @@
     width: 85px;
     height: 120px;
 }
-#middleRow{
+
+#middleRow {
     position: absolute;
     opacity: .5;
     left: 1438px;
@@ -129,7 +136,8 @@
     height: 120px;
 
 }
-#bottomRow{
+
+#bottomRow {
     position: absolute;
     opacity: .5;
     left: 1438px;
@@ -138,7 +146,8 @@
     height: 120px;
 
 }
-#bottomHalf{
+
+#bottomHalf {
     position: absolute;
     opacity: .5;
     left: 455px;
@@ -147,7 +156,8 @@
     height: 90px;
 
 }
-#upperHalf{
+
+#upperHalf {
     position: absolute;
     opacity: .5;
     left: 1275px;
@@ -156,7 +166,8 @@
     height: 90px;
 
 }
-#even{
+
+#even {
     position: absolute;
     opacity: .5;
     left: 620px;
@@ -165,16 +176,24 @@
     height: 90px;
 
 }
-#odd{
+
+#reset {
+    left: 56%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+
+#odd {
     position: absolute;
-    opacity: .5;    
+    opacity: .5;
     left: 1110px;
     top: 635px;
     width: 165px;
     height: 90px;
 
 }
-#red{
+
+#red {
     position: absolute;
     opacity: .5;
     left: 785px;
@@ -183,7 +202,8 @@
     height: 90px;
 
 }
-#black{
+
+#black {
     position: absolute;
     opacity: .5;
     left: 950px;
@@ -192,7 +212,8 @@
     height: 90px;
 
 }
-#zero{
+
+#zero {
     position: absolute;
     opacity: .5;
     left: 350px;
