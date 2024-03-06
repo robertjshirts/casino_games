@@ -40,7 +40,7 @@ var tt = setInterval(function () {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.notFirstTime) {
+    if (!localStorage.notFirstTime || localStorage.cash == NaN) {
         localStorage.bank = 9500
         localStorage.cash = 500
         if (localStorage.cash == undefined) {
