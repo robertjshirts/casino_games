@@ -33,9 +33,13 @@ export class Roulette {
      * @returns {Number} The return on the bet
      */
     CalculatePayout(bets, amount) {
+        if (bets === undefined || bets === null || bets.length === 0 || amount === 0 || amount < 0) {
+            console.log("Error");
+            return 0;
+        }
         for (let bet of bets) {
             if (this.wheelNumber === bet) {
-                return Math.floor(((36 / bets.length) - 1) * amount) + bet;
+                return Math.floor(((36 / bets.length) - 1) * amount) + amount;
             }
         }
 

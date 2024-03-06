@@ -232,28 +232,30 @@ import { Roulette } from './Game.js';
 
 const roulette = new Roulette();
 
-
 actionButton.addEventListener('click', (ev) => {
     let outcome = roulette.Spin();
-    updateOutcomeElement(outcome);
     let tabulatedBets = tabulateBets();
-    for (let bet in tabulatedBets) {
-        for (let number in bet) {
-            // Add complex type intead of array to allow for amount variable on an individual bet
-            localStorage.cash = Number(localStorage.cash) - number;
-            localStorage.cash = Number(localStorage.cash) + roulette.CalculatePayout(number);
-            console.log(`bet was ${bet}`);
+    for (let i = 0; i < tabulatedBets.length; i++) {
+        let payout = roulette.CalculatePayout(tabulatedBets[i].bets, tabulatedBets[i].amount);
+        if (payout > 0) {
+            updateElements(outcome, true);
+        } else {
+            updateElements(outcome, false);
         }
+        localStorage.cash = Number(localStorage.cash) + payout;
     }
 });
 
-
-
-function updateOutcomeElement(outcome) {
+function updateElements(outcome, isWin) {
     outcomeElement.innerHTML = outcome;
     outcomeElement.style.visibility = 'visible';
     outcomeElement.classList.remove('red', 'green', 'black');
     outcomeElement.classList.add(roulette.wheelColor);
+    if (isWin) {
+        document.getElementById('cash').style.color = 'green';
+    } else {
+        document.getElementById('cash').style.color = 'red';
+    }
 }
 
 
@@ -265,19 +267,58 @@ function tabulateBets() {
             return;
         }
 
+        // Format bet object
+        let formattedBet = {
+            amount: bet.amount,
+            bets: []
+        }
         // Handle complex bet types
         if (bet.type === 'complex') {
-            return;
+            formattedBet.bets = convertComplexToBet(bet.bet);
         } else {
-            tabulatedBets.push(convertRowColToBet(bet));
+            formattedBet.bets = convertRowColToBet(bet);
         }
+        tabulatedBets.push(formattedBet);
     }
     return tabulatedBets;
 }
 
+function convertComplexToBet(bet) {
+    switch (bet) {
+        case 'firstDozen':
+            return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        case 'secondDozen':
+            return [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+        case 'thirdDozen':
+            return [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
+        case 'bottomRow':
+            return [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
+        case 'middleRow':
+            return [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
+        case 'topRow':
+            return [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+        case 'bottomHalf':
+            return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+        case 'upperHalf':
+            return [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
+        case 'even':
+            return [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36];
+        case 'odd':
+            return [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35];
+        case 'red':
+            return [32, 19, 21, 25, 34, 27, 36, 30, 23, 5, 16, 1, 14, 9, 18, 7, 12, 3];
+        case 'black':
+            return [15, 4, 2, 17, 6, 13, 11, 8, 10, 24, 33, 20, 31, 22, 29, 28, 35, 26];
+        default:
+            if (bet !== 'zero') {
+                alert(`There was an issue with parsing a complex bet ${bet}`);
+            }
+            return [0];
+    }
+}
+
 function convertRowColToBet(bet) {
     // Handle the 0th col (bets include 0)
-    // TODO: Refactor this one
     const row = bet.row;
     const col = bet.col;
     if (col === 0 && row === 0) {
