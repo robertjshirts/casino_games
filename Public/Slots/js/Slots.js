@@ -51,7 +51,7 @@ spinbutton.addEventListener('click', function() {
                     case 'bar':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
-                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bar.png" alt="bar" />';
+                        document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bars.png" alt="bar" />';
                         break;
                     case 'seven':
                         //set the innerHTML of the slot to the random option 
@@ -93,6 +93,7 @@ spinbutton.addEventListener('click', function() {
         document.getElementById('chips').innerHTML = localStorage.cash
     }
 
+    document.getElementById('bet').innerHTML = 0;
 
 });
 
