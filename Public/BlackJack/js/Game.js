@@ -15,6 +15,7 @@ class Game {
         this.dealCards()
         Display.displayPlayerHand(this.player.getHand())
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
+        // Display.displayChipBet() //idk how to call the chip
     }
 
     dealCards = () => {
