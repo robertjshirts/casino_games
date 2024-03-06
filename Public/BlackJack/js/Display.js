@@ -5,6 +5,16 @@ import Dealer from './Dealer.js'
 
 class Display{
 
+    static displayChipBet = (chip) => {
+        let betContainer = document.getElementById("betContainer");
+        betContainer.innerHTML = "";
+        for (let i = 0; i < chip.length; i++) {
+            let chipImg = document.createElement('img');
+            chipImg.src = chip[i].getImage();
+            betContainer.appendChild(chipImg);
+        }
+    }
+
     static displayPlayerHand = (hand)=>{
         let handContainer = document.getElementById("handContainer")
         handContainer.innerHTML = ""
