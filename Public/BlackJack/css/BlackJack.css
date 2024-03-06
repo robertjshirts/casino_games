@@ -11,6 +11,14 @@ html{
     background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
 }
 
+.genericButton:hover {
+    cursor: pointer;
+}
+
+.chip {
+    cursor: pointer;
+}
+
 #standBtn {
     left: 81.2%;
     top: 87%;
@@ -208,6 +216,26 @@ html{
     z-index: 4;
 }
 
+#closeOut {
+    position: absolute;
+    left: 72.3%;
+    transform: translateX(-50%);
+    top: 15%;
+    z-index: 6;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-size: 28px;
+    color: black;
+    margin: 10px;
+    padding: 5px;
+    visibility: hidden;
+}
+
+#closeOut:hover {
+    color: green;
+    cursor: pointer;
+}
+
 #rulesContainer {
     position: absolute;
     left: 50%;
@@ -222,6 +250,10 @@ html{
     width: 900px;
     font-size: 24px;
     visibility: hidden;
+}
+
+#rulesContainer:hover {
+    cursor: pointer;
 }
 
 #rulesContainer p {

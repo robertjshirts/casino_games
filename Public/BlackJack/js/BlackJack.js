@@ -44,6 +44,16 @@ document.getElementById('standBtn').addEventListener("click", ()=>{
     game.dealerTurn()
 })
 
+document.getElementById('rulesBtn').addEventListener("click", () => {
+    document.getElementById('rulesContainer').style.visibility = 'visible'
+    document.getElementById('closeOut').style.visibility = 'visible'
+})
+
+document.getElementById('closeOut').addEventListener("click", () => {
+    document.getElementById('rulesContainer').style.visibility = 'hidden'
+    document.getElementById('closeOut').style.visibility = 'hidden'
+})
+
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]
     for (let i = 0; i < chips.length; i++) {
