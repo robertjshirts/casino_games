@@ -82,8 +82,15 @@ spinbutton.addEventListener('click', function() {
     //call the muliplier function
     let winning = Winnings(slot1, slot2, slot3);
 
-    //update the players balance
-    localStorage.cash = parseInt(localStorage.cash) + winning;
+    //update the cash
+    if(slot1 === slot2 && slot2 === slot3) {
+        localStorage.cash = Number(localStorage.cash) + winning;
+        document.getElementById('chips').innerHTML = localStorage.cash
+    } else {
+        localStorage.cash = Number(localStorage.cash) - winning;
+        document.getElementById('chips').innerHTML = localStorage.cash
+    }
+    
     console.log(localStorage.cash);
 
 });
