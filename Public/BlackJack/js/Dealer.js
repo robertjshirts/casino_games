@@ -2,6 +2,7 @@ class Dealer {
 
     constructor(){
         this.hand = []
+        this.container = "dealerContainer"
     }
 
     addToHand(card){

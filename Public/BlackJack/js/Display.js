@@ -4,6 +4,7 @@ import Player from './Player.js'
 import Dealer from './Dealer.js'
 
 class Display{
+
     static displayPlayerHand = (hand)=>{
         let handContainer = document.getElementById("handContainer")
         handContainer.innerHTML = ""
@@ -41,31 +42,18 @@ class Display{
         }
     }
 
-    static displayDeck = (hand)=>{
-        let deckContainer = document.getElementById("deckContainer")
-        deckContainer.innerHTML = ""
+    static displayPlayerSplitHand = (hand)=>{
+        let handContainer = document.getElementById("splitContainer")
+        handContainer.innerHTML = ""
         for(let i = 0; i < hand.length; i++){
             let cardDiv = document.createElement('div')
             let cardImg = document.createElement('img')
             cardImg.src = hand[i].getImage()
             cardDiv.appendChild(cardImg)
-            cardDiv.id = 'deckCard' + (i + 1);
-            deckContainer.appendChild(cardDiv)
+            cardDiv.id = 'splitCard' + (i + 1);
+            handContainer.appendChild(cardDiv)
         }
     }
-
-    // static displayDeck = (deck)=>{
-    // let deckContainer = document.getElementById("deckContainer")
-    // deckContainer.innerHTML = ""
-    // for(let i = 0; i < deck.length; i++){
-    //     let cardDiv = document.createElement('div')
-    //     let cardImg = document.createElement('img')
-    //     cardImg.src = deck[i].getBackImage()
-    //     cardDiv.appendChild(cardImg)
-    //     cardDiv.id = 'deckCard' + (i + 1);
-    //     deckContainer.appendChild(cardDiv)
-    // }
-    // }
 
     static changeBet = (bet)=>{
         document.getElementById("betBank").textContent = "BET:" + bet
@@ -78,6 +66,7 @@ class Display{
         document.getElementById("doubleDownBtn").style.visibility = "hidden"
         document.getElementById("hitBtn").style.visibility = "hidden"
         document.getElementById("standBtn").style.visibility = "hidden"
+        document.getElementById("splitContainer").innerHTML = ""
     }
 
 }

@@ -5,6 +5,10 @@ import Dealer from './Dealer.js'
 let game
 let bet = 0
 
+document.addEventListener("DOMContentLoaded", () => {
+    let cash = localStorage.getItem("cash")
+})
+
 document.getElementById('actionButton').addEventListener("click", ()=>{
     isBetCorrect()
     if(bet == 0){
@@ -29,6 +33,7 @@ document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('splitBtn').addEventListener("click", ()=>{
+    game.split()
 })
 
 document.getElementById('back').addEventListener("click", () => {
