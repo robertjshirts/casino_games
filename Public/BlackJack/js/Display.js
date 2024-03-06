@@ -69,6 +69,10 @@ class Display{
         document.getElementById("splitContainer").innerHTML = ""
     }
 
+    static updateBalance = ()=>{
+        document.getElementById("balanceContainer").textContent = "BALANCE:" + localStorage.cash
+    }
+
 }
 
 export default Display

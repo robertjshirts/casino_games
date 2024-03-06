@@ -4,9 +4,11 @@ import Player from './Player.js'
 import Dealer from './Dealer.js'
 let game
 let bet = 0
+let balance = 0
 
 document.addEventListener("DOMContentLoaded", () => {
-    let cash = localStorage.getItem("cash")
+    document.getElementById("balanceContainer").textContent = "BALANCE:" + localStorage.cash
+    balance = localStorage.cash
 })
 
 document.getElementById('actionButton').addEventListener("click", ()=>{
@@ -37,8 +39,8 @@ document.getElementById('splitBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('back').addEventListener("click", () => {
-    window.location.href = "http://localhost:8080";
-});
+    window.location.href = "http://localhost:8080"
+})  
 
 document.getElementById('standBtn').addEventListener("click", ()=>{
     game.dealerTurn()

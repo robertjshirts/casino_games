@@ -116,8 +116,9 @@ class Game{
     }
 
     updateCash = (amount) => {
-        let currentCash = parseInt(localStorage.getItem('cash'))
-        localStorage.setItem('cash', currentCash + amount)
+        let currentCash = parseInt(localStorage.cash) + amount
+        localStorage.cash = currentCash
+        Display.updateBalance()
     }
     
     checkForWin = () => {
