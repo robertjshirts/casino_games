@@ -62,6 +62,10 @@ const setOnClick = ()=>{
         document.getElementById("chip" + chips[i]).addEventListener("click", ()=>{
             isBetCorrect()
             let chipValue = chips[i]
+            if(bet + chipValue > localStorage.cash){
+                alert("You dont have enough money for this")
+                return
+            }
             bet += chipValue
             document.getElementById("betBank").textContent = "BET:" + bet
         })
