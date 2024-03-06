@@ -10,7 +10,7 @@ document.getElementById('chip1').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 
 
 });
@@ -25,7 +25,7 @@ document.getElementById('chip5').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip10').addEventListener('click', function() {
@@ -38,7 +38,7 @@ document.getElementById('chip10').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip20').addEventListener('click', function() {
@@ -51,7 +51,7 @@ document.getElementById('chip20').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip50').addEventListener('click', function() {
@@ -64,7 +64,7 @@ document.getElementById('chip50').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip100').addEventListener('click', function() {
@@ -77,7 +77,7 @@ document.getElementById('chip100').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip500').addEventListener('click', function() {
@@ -90,7 +90,7 @@ document.getElementById('chip500').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });
 
 document.getElementById('chip1000').addEventListener('click', function() {
@@ -103,7 +103,7 @@ document.getElementById('chip1000').addEventListener('click', function() {
     
         betElement.innerHTML = bet.toString();
     
-        console.log(localStorage.cash);
+        console.log(Number(localStorage.cash));
     });
 
 document.getElementById('chip5000').addEventListener('click', function() {  
@@ -115,5 +115,5 @@ document.getElementById('chip5000').addEventListener('click', function() {
 
     betElement.innerHTML = bet.toString();
 
-    console.log(localStorage.cash);
+    console.log(Number(localStorage.cash));
 });

@@ -4,6 +4,8 @@ initOptions();
 
 var spinbutton = document.getElementById('actionButton');
 
+document.getElementById('chips').innerHTML = Number(localStorage.cash);
+
 //event listen for the spin button
 spinbutton.addEventListener('click', function() {
     
@@ -90,8 +92,7 @@ spinbutton.addEventListener('click', function() {
         localStorage.cash = Number(localStorage.cash) - winning;
         document.getElementById('chips').innerHTML = localStorage.cash
     }
-    
-    console.log(localStorage.cash);
+
 
 });
 
