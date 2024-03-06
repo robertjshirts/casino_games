@@ -311,7 +311,7 @@ html{
 /* playerCard1 */
 #splitCard1 {
     position: absolute;
-    left: 31.3%;
+    left: 31.4%;
     transform: translateX(50%);
     transform: scale(.5);
     rotate: 8deg;
