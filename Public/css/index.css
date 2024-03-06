@@ -37,7 +37,7 @@ body {
     left: 81.2%;
     top: 87%;
 }
- 
+
 .gameButton {
     background-size: cover;
     width: 100%;
@@ -68,8 +68,8 @@ body {
     position: absolute;
     background-size: cover;
     visibility: hidden;
-    transition: width 0.5s, height 0.5s; 
-    
+    transition: width 0.5s, height 0.5s;
+
 }
 
 
@@ -97,10 +97,69 @@ body {
     left: 82%;
 }
 
-.gameLogo:hover{
+.gameLogo:hover {
     scale: 1.1;
 }
 
-.genericButton:active{
+.genericButton:active {
     background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
+}
+
+#bankMenu {
+    visibility: hidden;
+}
+
+#amount {
+    position: absolute;
+    width: 295px;
+    height: 73px;
+    resize: none;
+    background: url("../CasinoAssets/Overall UI/ButtonUp.png");
+    background-size: cover;
+    font-size: 45px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-weight: 900;
+    /* background-color: #ffcf13; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+#deposit {
+    font-size: 45px;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#withdraw {
+    font-size: 45px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+
+#cashBalance {
+    position: absolute;
+    font-size: 70px;
+    color: #fafafa;
+    left: 19%;
+    top: 60%;
+    text-align: start;
+    transform: translate(-50%, -50%);
+
+}
+
+#bankBalance {
+    position: absolute;
+    position: absolute;
+    color: #fafafa;
+    font-size: 70px;
+    text-align: start;
+    left: 19%;
+    top: 40%;
+    transform: translate(-50%, -50%);
 }
