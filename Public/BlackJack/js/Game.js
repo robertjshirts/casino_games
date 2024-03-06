@@ -3,11 +3,12 @@ import Player from './Player.js'
 import Dealer from './Dealer.js'
 import Display from './Display.js'
 
-class Game{
+class Game {
 
-    constructor(bet){
+    constructor(bet) {
         this.isGameOver = false
         this.gameSplit = false
+        this.isSplitBust = false
         this.deck = this.createDeck()
         this.player = new Player(bet)
         this.dealer = new Dealer()
@@ -16,23 +17,25 @@ class Game{
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
     }
 
-    dealCards = ()=>{
+    dealCards = () => {
         this.player.addToHand(this.getCard())
-        this.player.addToHand(this.getCard()) 
+        this.player.addToHand(this.getCard())
         this.isBust(this.player)
+        this.isBlackjack(this.player)
         this.dealer.addToHand(this.getCard())
         this.dealer.addToHand(this.getCard())
         this.isBust(this.dealer)
+        this.isBlackjack(this.dealer)
     }
 
-    createDeck = ()=>{
+    createDeck = () => {
         let deck = []
         const suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
         const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K", "A"]
 
-        for(let suit of suits){
-            for(let rank of ranks){
-                const card = new Card(rank, suit, 
+        for (let suit of suits) {
+            for (let rank of ranks) {
+                const card = new Card(rank, suit,
                     '../CasinoAssets/BlackJack/Cards/card' + suit + rank + ".png", '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
                 deck.push(card)
             }
@@ -42,7 +45,7 @@ class Game{
     }
 
     shuffle = (array) => {
-        let currentIndex = array.length,  randomIndex
+        let currentIndex = array.length, randomIndex
 
         while (currentIndex > 0) {
             randomIndex = Math.floor(Math.random() * currentIndex)
@@ -53,17 +56,17 @@ class Game{
         return array
     }
 
-    makePlayerHandPair = ()=>{
-        let card1 = new Card("4" ,"Diamonds", '../CasinoAssets/BlackJack/Cards/cardDiamonds4.png', '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
-        let card2 = new Card("4" ,"Hearts", '../CasinoAssets/BlackJack/Cards/cardHearts4.png', '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
+    makePlayerHandPair = () => {
+        let card1 = new Card("4", "Diamonds", '../CasinoAssets/BlackJack/Cards/cardDiamonds4.png', '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
+        let card2 = new Card("4", "Hearts", '../CasinoAssets/BlackJack/Cards/cardHearts4.png', '../CasinoAssets/BlackJack/Cards/cardBack_red2.png')
         let hand = [card1, card2]
         this.player.resetHand(hand)
         Display.displayPlayerHand(this.player.getHand())
     }
 
-    split = ()=>{
+    split = () => {
         this.makePlayerHandPair()
-        if(this.player.getHand().length == 2 && this.checkForPair()){
+        if (this.player.getHand().length === 2 && this.checkForPair()) {
             this.player.setSplitHand([this.player.getHand()[0], this.getCard()])
             this.player.resetHand([this.player.getHand()[1], this.getCard()])
             Display.displayPlayerHand(this.player.getHand())
@@ -71,27 +74,29 @@ class Game{
             this.gameSplit = true
             return
         }
-        alert("you can only split when your first two cards are a pair")
+        alert("You can only split when your first two cards are a pair")
     }
 
-    checkForPair = ()=>{
-        if(this.convertCard(this.player.getHand()[0], 0) === this.convertCard(this.player.getHand()[1], 0)){
+    checkForPair = () => {
+        if (this.convertCard(this.player.getHand()[0], 0) === this.convertCard(this.player.getHand()[1], 0)) {
             return true
         }
 
         return false
     }
 
-    getCard = ()=>{
+    getCard = () => {
         const index = Math.floor(Math.random() * this.deck.length)
         const card = this.deck[index]
         this.deck.splice(index, 1)
         return card
     }
 
-    hit = ()=>{
-        if(this.gameSplit){
+    hit = () => {
+        if (this.gameSplit) {
+            console.log(this.player.getSplitHand())
             this.player.addToSplitHand(this.getCard())
+            console.log(this.countCards(this.player.getSplitHand()))
             Display.displayPlayerSplitHand(this.player.getSplitHand())
             this.isBust(this.player)
             return
@@ -101,15 +106,16 @@ class Game{
         this.isBust(this.player)
     }
 
-    doubleDown = ()=>{
-        if(this.player.getHand().length > 2){
+    doubleDown = () => {
+        if (this.player.getHand().length > 2) {
             alert("You can only double down on your first hit")
             return
         }
 
         this.player.addBet(this.player.bet * 2)
         this.player.addToHand(this.getCard())
-        Display.changeBet(this.player.getBet())
+        let bet = this.player.getBet()
+        Display.changeBet(bet)
         Display.displayPlayerHand(this.player.getHand())
         this.isBust(this.player)
         this.dealerTurn()
@@ -120,81 +126,113 @@ class Game{
         localStorage.cash = currentCash
         Display.updateBalance()
     }
+
+    checkForWinSplit = (dealerTotal, bet) => {
+        const total = this.countCards(this.player.getSplitHand())
+        if (total === 21 && dealerTotal === 21) {
+            alert(`Split Tie! Bet: ${bet}`);
+        } else if (dealerTotal === 21) {
+            this.updateCash(-bet);
+            alert(`Split Dealer Wins! Bet: ${bet}`);
+        } else if (total === 21) {
+            this.updateCash(bet * 2);
+            alert(`Split Player Wins! Bet: ${bet}`);
+        } else if (total <= 21 && total > dealerTotal) {
+            this.updateCash(bet);
+            alert(`Split Player Wins! Bet: ${bet}`);
+        } else if (total <= 21 && dealerTotal > 21) {
+            this.updateCash(bet);
+            alert(`Split Player Wins! Bet: ${bet}`);
+        } else if (total <= 21 && dealerTotal > total) {
+            this.updateCash(-bet);
+            alert(`Split Dealer Wins! Bet: ${bet}`);
+        } else {
+            alert(`Split Tie! Bet: ${bet}`);
+        }
+    }
     
     checkForWin = () => {
-        const playerTotal = this.countCards(this.player.getHand())
-        const dealerTotal = this.countCards(this.dealer.getHand())
-        const bet = this.player.getBet()
+        const playerTotal = this.countCards(this.player.getHand());
+        const dealerTotal = this.countCards(this.dealer.getHand());
+        const bet = this.player.getBet();
+    
+        if (this.player.getSplitHand() && this.player.getSplitHand().length >= 2 && !this.isSplitBust) {
+            this.checkForWinSplit(dealerTotal, bet);
+        }
     
         if (playerTotal === 21 && dealerTotal === 21) {
-            alert("Tie")
-            this.gameOver()
+            alert(`Tie! Bet: ${bet}`);
+            this.gameOver();
         } else if (dealerTotal === 21) {
-            this.updateCash(-bet)
-            alert("Dealer Wins")
-            this.gameOver()
+            this.updateCash(-bet);
+            alert(`Dealer Wins! Bet: ${bet}`);
+            this.gameOver();
         } else if (playerTotal === 21) {
-            this.updateCash(bet * 2)
-            alert("Player Wins")           
-            this.gameOver()
+            this.updateCash(bet * 2);
+            alert(`Player Wins! Bet: ${bet}`);
+            this.gameOver();
         } else if (playerTotal <= 21 && playerTotal > dealerTotal) {
-            this.updateCash(bet)
-            alert("Player Wins")
-            this.gameOver()
+            this.updateCash(bet);
+            alert(`Player Wins! Bet: ${bet}`);
+            this.gameOver();
         } else if (dealerTotal <= 21 && dealerTotal > playerTotal) {
-            this.updateCash(-bet)
-            alert("Dealer Wins")
-            this.gameOver()
+            this.updateCash(-bet);
+            alert(`Dealer Wins! Bet: ${bet}`);
+            this.gameOver();
         } else {
-            alert("Tie")
-            this.gameOver()
+            alert(`Tie! Bet: ${bet}`);
+            this.gameOver();
         }
-
-        Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
+    
+        Display.displayDealerHand(this.dealer.getHand(), this.isGameOver);
     }
 
-    isBust = (person) =>{
-
-        if(this.gameSplit){
-            this.updateCash(-person.getBet())
-            alert("Player Bust")
-            this.gameSplit = false
-            return
+    isBust = (person) => {
+        if (this.gameSplit) {
+            if (this.countCards(person.getSplitHand()) > 21) {
+                this.updateCash(-person.getBet())
+                alert("Split Player Bust")
+                this.gameSplit = false
+                this.isSplitBust = true
+            }
         }
-
-        if(this.countCards(person.getHand()) > 21 || this.split && this.countCards(this.player.getSplitHand() > 21)){
-            if(person instanceof Player){
+    
+        if (this.countCards(person.getHand()) > 21) {
+            if (person instanceof Player) {
                 this.updateCash(-person.getBet())
                 alert("Player Bust")
+                if (!this.gameSplit || (this.gameSplit && this.isSplitBust)) {
+                    this.gameOver();
+                }
+            } else {
+                alert("Dealer Busts")
+                this.updateCash(this.player.getBet())
                 this.gameOver()
-                return
             }
-            alert("Dealer Busts")
-            this.updateCash(this.player.getBet)
-            this.gameOver()
         }
     }
 
-    isBlackjack = (person)=>{
-        if(this.countCards(this.person.getHand()) == 21){
-            if(person instanceof Player){
-                this.updateCash(bet * 2)
+    isBlackjack = (person) => {
+        if (this.countCards(person.getHand()) === 21) {
+            if (person instanceof Player) {
+                this.updateCash(this.player.getBet() * 2)
                 alert("Player has Blackjack")
                 this.gameOver()
+            } else {
+                alert("Dealer has Blackjack")
+                this.gameOver()
             }
-            alert("Dealer has Blackjack")
-            this.gameOver()
         }
     }
 
-    countCards = (hand)=>{
-        if(hand == undefined || hand.length == 0){
+    countCards = (hand) => {
+        if (hand === undefined || hand.length === 0) {
             return 0
         }
         hand = this.checkForAce(hand)
 
         let amount = 0
-        for(let i = 0; i < hand.length; i++){
+        for (let i = 0; i < hand.length; i++) {
             let card = hand[i]
             let cardValue = this.convertCard(card, amount)
             amount += cardValue
@@ -202,29 +240,28 @@ class Game{
         return amount
     }
 
-    checkForAce = (hand)=>{
+    checkForAce = (hand) => {
         let newHand = []
         let aceHand = []
-        for(let i = 0; i < hand.length; i++){
-            if(hand[i].rank == "A"){
+        for (let i = 0; i < hand.length; i++) {
+            if (hand[i].rank === "A") {
                 aceHand.push(hand[i])
                 continue
             }
             newHand.push(hand[i])
         }
 
-        if(aceHand.length > 0){
+        if (aceHand.length > 0) {
             newHand.push(...aceHand)
         }
 
         return newHand
-    } 
+    }
 
     convertCard = (card, amount) => {
-
         let value = card.rank;
         if (value === "A") {
-            if(amount + 11 > 21){
+            if (amount + 11 > 21) {
                 return 1
             }
             return 11
@@ -233,26 +270,29 @@ class Game{
         } else {
             return parseInt(value)
         }
-    }   
+    }
 
-    dealerTurn = ()=>{
+    dealerTurn = () => {
+        if (this.gameSplit) {
+            this.gameSplit = false
+            return
+        }
 
         let isDealerDone = false
-        while(!isDealerDone && !this.isGameOver){
-            if(this.countCards(this.dealer.getHand()) < 17){
+        while (!isDealerDone && !this.isGameOver) {
+            if (this.countCards(this.dealer.getHand()) < 17) {
                 this.dealer.addToHand(this.getCard())
                 Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
                 this.isBust(this.dealer)
-            }
-            else if(this.countCards(this.dealer.getHand()) >= 17){
+            } else if (this.countCards(this.dealer.getHand()) >= 17) {
                 isDealerDone = true
             }
-        } 
+        }
 
         this.checkForWin()
     }
 
-    gameOver = ()=>{
+    gameOver = () => {
         this.isGameOver = true
         Display.resetDisplay()
     }

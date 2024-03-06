@@ -58,6 +58,9 @@ document.getElementById('closeOut').addEventListener("click", () => {
 
 const setOnClick = ()=>{
     let chips = [1, 5, 10, 20, 50, 100, 500, 1000, 5000]
+    let chipImg = document.createElement('img')
+    document.getElementById("betContainer").appendChild(chipImg)
+
     for (let i = 0; i < chips.length; i++) {
         document.getElementById("chip" + chips[i]).addEventListener("click", ()=>{
             isBetCorrect()
@@ -67,9 +70,10 @@ const setOnClick = ()=>{
                 return
             }
             bet += chipValue
+            chipImg.src = "../CasinoAssets/Overall UI/Chip" + chipValue + ".png"
             document.getElementById("betBank").textContent = "BET:" + bet
         })
-    }
+    }    
 }
 
 const isBetCorrect = ()=>{
