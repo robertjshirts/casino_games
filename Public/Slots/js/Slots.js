@@ -27,46 +27,55 @@ spinbutton.addEventListener('click', function() {
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Cherry.png" alt="cherry" />';
+                        document.getElementById('slot' + i).classList.add("cherry")
                         break;
                     case 'lemon':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Lemon.png" alt="lemon" />';
+                        document.getElementById('slot' + i).classList.add("lemon")
                         break;
                     case 'orange':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Orange.png" alt="orange" />';
+                        document.getElementById('slot' + i).classList.add("orange")
                         break;
                     case 'plum':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Plum.png" alt="plum" />';
+                        document.getElementById('slot' + i).classList.add("plum")
                         break;
                     case 'bell':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bell.png" alt="bell" />';
+                        document.getElementById('slot' + i).classList.add("bell")
                         break;
                     case 'bar':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Bars.png" alt="bar" />';
+                        document.getElementById('slot' + i).classList.add("bar")
                         break;
                     case 'seven':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Seven.png" alt="seven" />';
+                        document.getElementById('slot' + i).classList.add("seven")
                         break;
                     case 'banana':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Banana.png" alt="banana" />';
+                        document.getElementById('slot' + i).classList.add("banana")
                         break;
                     case 'melon':
                         //set the innerHTML of the slot to the random option 
                         //get the random option picture it coresponds to
                         document.getElementById('slot' + i).innerHTML = '<img src="../CasinoAssets/Slots/Wheel - Melon.png" alt="melon" />';
+                        document.getElementById('slot' + i).classList.add("melon")
                         break;
                 }
                 
@@ -83,13 +92,16 @@ spinbutton.addEventListener('click', function() {
 
     //call the muliplier function
     let winning = Winnings(slot1, slot2, slot3);
+    console.log(`You ${(slot1 == slot2 && slot2 == slot3) ? "won" : "lost"} ${winning}`);
 
     //update the cash
     if(slot1 === slot2 && slot2 === slot3) {
-        localStorage.cash = Number(localStorage.cash) + winning;
+        let temp = Number(localStorage.cash) + Number(winning);
+        localStorage.cash = temp;
         document.getElementById('chips').innerHTML = localStorage.cash
     } else {
-        localStorage.cash = Number(localStorage.cash) - winning;
+        console.log("You lose fucking loser");
+        localStorage.cash = Number(localStorage.cash) - Number(winning);
         document.getElementById('chips').innerHTML = localStorage.cash
     }
 
@@ -99,13 +111,17 @@ spinbutton.addEventListener('click', function() {
 
 function Winnings(slot1, slot2, slot3) {
     //check for 3 of a kind
-    if(slot1 === slot2 && slot2 === slot3) {
+    if(slot1 == slot2 && slot2 == slot3) {
         //if 3 of a kind then multiply the bet by 3
+        let betElement = document.getElementById('bet');
+        
+        let bet = parseInt(betElement.innerHTML);
+        
+        console.log(slot1);
 
-        let bet = parseInt(document.getElementById('bet').innerHTML);
         let multiplier = muliplier(slot1);
 
-        return bet * multiplier;
+        return bet * Number(multiplier);
 
     } else {
         //if no matches then the bet is lost
@@ -115,7 +131,28 @@ function Winnings(slot1, slot2, slot3) {
 }
 
 function muliplier(option) {
-    switch(option) {
+    var classes = [
+        'lemon',
+        'orange',
+        'banana',
+        'melon',
+        'plum',
+        'cherry',
+        'bell',
+        'bar',
+        'seven'
+    ]
+
+    let myclass = null;
+
+    for(let i = 0; i < classes.length; i++) {
+        if(option.includes(classes[i])) {
+            myclass = classes[i];
+            break;
+        }
+    }
+
+    switch(myclass) {
         case 'lemon':
             return 1;
         case 'orange':
@@ -135,6 +172,8 @@ function muliplier(option) {
         case 'seven':
             return 500;
     }
+    console.log("I SHOULD NOT BE HERE")
+    return 0;
 
 }
 
