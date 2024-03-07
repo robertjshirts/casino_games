@@ -176,6 +176,7 @@ function addComplexBet(x, y, element, amount) {
         return true;
     })
     if (location == null) {
+        owed+=amount
         element.remove()
         return;
     } else {
@@ -195,12 +196,14 @@ function addBasicBet(x, y, element, amount) {
     let col = Math.floor((x / 40))
     if (col > 23 || col < 0) {
         element.remove()
+        owed += amount
         return;
     }
 
     let row = Math.floor(y / 55)
     if (row > 5 || row < 0) {
         element.remove()
+        owed += amount;
         return;
     }
 
