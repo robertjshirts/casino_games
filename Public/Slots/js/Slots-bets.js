@@ -1,119 +1,118 @@
 //event listener for chip buttons
 
 document.getElementById('chip1').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=1;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
-
-
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip5').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=5;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip10').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=10;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip20').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=20;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip50').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=50;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip100').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=100;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip500').addEventListener('click', function() {
-    
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=500;
-
-    betElement.innerHTML = bet.toString();
-
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
 
 document.getElementById('chip1000').addEventListener('click', function() {
-        
-        let betElement = document.getElementById('bet')
-        let bet = parseInt(betElement.innerHTML);
-        console.log(bet);
-    
-        bet +=1000;
-    
-        betElement.innerHTML = bet.toString();
-    
-        console.log(Number(localStorage.cash));
-    });
-
-document.getElementById('chip5000').addEventListener('click', function() {  
     let betElement = document.getElementById('bet')
     let bet = parseInt(betElement.innerHTML);
-    console.log(bet);
+    let currentCash = parseInt(localStorage.cash);
 
-    bet +=5000;
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
+});
 
-    betElement.innerHTML = bet.toString();
+document.getElementById('chip10000').addEventListener('click', function() {
+    let betElement = document.getElementById('bet')
+    let bet = parseInt(betElement.innerHTML);
+    let currentCash = parseInt(localStorage.cash);
 
-    console.log(Number(localStorage.cash));
+    if (currentCash >= (bet + 1)) {
+        bet += 1;
+        betElement.innerHTML = bet.toString();
+    } else {
+        alert("You don't have enough cash to make this bet.");
+    }
 });
