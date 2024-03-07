@@ -2,6 +2,10 @@
 let options = [];
 initOptions();
 
+document.getElementById('back').addEventListener('click', () => {
+    window.location.href = 'http://localhost:8080'
+})
+
 var spinbutton = document.getElementById('actionButton');
 
 document.getElementById('chips').innerHTML = Number(localStorage.cash);
