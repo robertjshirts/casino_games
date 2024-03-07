@@ -15,7 +15,6 @@ class Game {
         this.dealCards()
         Display.displayPlayerHand(this.player.getHand())
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver)
-        // Display.displayChipBet() //idk how to call the chip
     }
 
     dealCards = () => {
@@ -131,24 +130,24 @@ class Game {
     checkForWinSplit = (dealerTotal, bet) => {
         const total = this.countCards(this.player.getSplitHand())
         if (total === 21 && dealerTotal === 21) {
-            alert(`Split Tie! Bet: ${bet}`);
+            Display.showOutput(`Split Tie! Bet: ${bet}`);
         } else if (dealerTotal === 21) {
             this.updateCash(-bet);
-            alert(`Split Dealer Wins! Bet: ${bet}`);
+            Display.showOutput(`Split Dealer Wins! Bet: ${bet}`);
         } else if (total === 21) {
             this.updateCash(bet * 2);
-            alert(`Split Player Wins! Bet: ${bet}`);
+            Display.showOutput(`Split Player Wins! Bet: ${bet}`);
         } else if (total <= 21 && total > dealerTotal) {
             this.updateCash(bet);
-            alert(`Split Player Wins! Bet: ${bet}`);
+            Display.showOutput(`Split Player Wins! Bet: ${bet}`);
         } else if (total <= 21 && dealerTotal > 21) {
             this.updateCash(bet);
-            alert(`Split Player Wins! Bet: ${bet}`);
+            Display.showOutput(`Split Player Wins! Bet: ${bet}`);
         } else if (total <= 21 && dealerTotal > total) {
             this.updateCash(-bet);
-            alert(`Split Dealer Wins! Bet: ${bet}`);
+            Display.showOutput(`Split Dealer Wins! Bet: ${bet}`);
         } else {
-            alert(`Split Tie! Bet: ${bet}`);
+            Display.showOutput(`Split Tie! Bet: ${bet}`);
         }
     }
     
@@ -162,26 +161,26 @@ class Game {
         }
     
         if (playerTotal === 21 && dealerTotal === 21) {
-            alert(`Tie! Bet: ${bet}`);
+            Display.showOutput(`Tie! Bet: ${bet}`);
             this.gameOver();
         } else if (dealerTotal === 21) {
             this.updateCash(-bet);
-            alert(`Dealer Wins! Bet: ${bet}`);
+            Display.showOutput(`Dealer Wins! Bet: ${bet}`);
             this.gameOver();
         } else if (playerTotal === 21) {
             this.updateCash(bet * 2);
-            alert(`Player Wins! Bet: ${bet}`);
+            Display.showOutput(`Player Wins! Bet: ${bet}`);
             this.gameOver();
         } else if (playerTotal <= 21 && playerTotal > dealerTotal) {
             this.updateCash(bet);
-            alert(`Player Wins! Bet: ${bet}`);
+            Display.showOutput(`Player Wins! Bet: ${bet}`);
             this.gameOver();
         } else if (dealerTotal <= 21 && dealerTotal > playerTotal) {
             this.updateCash(-bet);
-            alert(`Dealer Wins! Bet: ${bet}`);
+            Display.showOutput(`Dealer Wins! Bet: ${bet}`);
             this.gameOver();
         } else {
-            alert(`Tie! Bet: ${bet}`);
+            Display.showOutput(`Tie! Bet: ${bet}`);
             this.gameOver();
         }
     
@@ -192,7 +191,7 @@ class Game {
         if (this.gameSplit) {
             if (this.countCards(person.getSplitHand()) > 21) {
                 this.updateCash(-person.getBet())
-                alert("Split Player Bust")
+                Display.showOutput("Split Player Bust");
                 this.gameSplit = false
                 this.isSplitBust = true
             }
@@ -201,12 +200,12 @@ class Game {
         if (this.countCards(person.getHand()) > 21) {
             if (person instanceof Player) {
                 this.updateCash(-person.getBet())
-                alert("Player Bust")
+                Display.showOutput("Player Bust");
                 if (!this.gameSplit || (this.gameSplit && this.isSplitBust)) {
                     this.gameOver();
                 }
             } else {
-                alert("Dealer Busts")
+                Display.showOutput("Dealer Busts");
                 this.updateCash(this.player.getBet())
                 this.gameOver()
             }
@@ -217,10 +216,10 @@ class Game {
         if (this.countCards(person.getHand()) === 21) {
             if (person instanceof Player) {
                 this.updateCash(this.player.getBet() * 2)
-                alert("Player has Blackjack")
+                Display.showOutput("Player has Blackjack");
                 this.gameOver()
             } else {
-                alert("Dealer has Blackjack")
+                Display.showOutput("Dealer has Blackjack");
                 this.gameOver()
             }
         }

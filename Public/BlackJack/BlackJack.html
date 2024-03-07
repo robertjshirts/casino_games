@@ -17,29 +17,33 @@
             <div class="blackJackIcon">
                 <img src="../CasinoAssets/Overall UI/Blackjack Icon.png" />
             </div>
-            <a><div class="genericButton" id="rulesBtn">R U L E S</div></a>
+            <a>
+                <div class="genericButton" id="rulesBtn">R U L E S</div>
+            </a>
         </div>
 
-        <div id="balanceContainer" class="genericDiv" 
-        style="background-image: url('../CasinoAssets/Overall UI/ButtonUp.png');">BALANCE: </div>
+        <div id="balanceContainer" class="genericDiv"
+            style="background-image: url('../CasinoAssets/Overall UI/ButtonUp.png');">BALANCE: </div>
 
-        <div id="betBank" class="genericDiv"
-        style="background-image: url('../CasinoAssets/Overall UI/ButtonUp.png');">BET:0 </div>
+        <div id="betBank" class="genericDiv" style="background-image: url('../CasinoAssets/Overall UI/ButtonUp.png');">
+            BET:0 </div>
 
-        <a><div id="closeOut">X</div></a>
+        <a>
+            <div id="closeOut">X</div>
+        </a>
 
         <div id="rulesContainer">
             BLACKJACK RULES
             <p>
-                <h3>Card Values:</h3>
-                <pre>
+            <h3>Card Values:</h3>
+            <pre>
                 - Number cards (2-10) are worth their face value.
                 - Face cards (Jack, Queen, King) are each worth 10.
                 - Aces can be worth 1 or 11, depending on which value benefits the hand more.
                 </pre>
 
-                <h3>Dealing:</h3>
-                <pre>
+            <h3>Dealing:</h3>
+            <pre>
                 - Each player, including the dealer, is initially dealt two cards.
                 - Players' cards are usually dealt face up, while the dealer has one card face up 
                     (known as the "upcard") and one face down (the "hole card").
@@ -47,8 +51,8 @@
                     they have a "Blackjack" or "Natural."
                 </pre>
 
-                <h3>Player's Turn:</h3>
-                <pre>
+            <h3>Player's Turn:</h3>
+            <pre>
                 Players can choose from the following actions:
                 - Hit: Take an additional card to increase the hand value.
                 - Stand: Keep the current hand without taking additional cards.
@@ -58,16 +62,16 @@
                     each with its own bet. Additional cards are then dealt to each new hand.
                 </pre>
 
-                <h3>Dealer's Turn:</h3>
-                <pre>
+            <h3>Dealer's Turn:</h3>
+            <pre>
                 - The dealer reveals the hole card.
                 - The dealer must hit until their hand totals 17 or higher.
                 - Some casinos have specific rules for the dealer, such as hitting on a soft 17 
                     (a hand containing an Ace valued as 11).
                 </pre>
 
-                <h3>Winning/Losing:</h3>
-                <pre>
+            <h3>Winning/Losing:</h3>
+            <pre>
                 - Players win if their hand is closer to 21 than the dealer's hand without going over 21.
                 - If a player busts (goes over 21), they lose their bet.
                 - If the dealer busts and the player hasn't, the player wins.
@@ -76,110 +80,122 @@
             </p>
         </div>
 
-            <a><div class="genericButton" id="back">B A C K</div></a>
-            <div id="chipContainer">
-                <!-- chips clicked for bet - then deal -->
-                <a><div class="chip chip1" id="chip1"></div></a>
-                <a><div class="chip chip5" id="chip5"></div></a>
-                <a><div class="chip chip10" id="chip10"></div></a>
-                <a><div class="chip chip20" id="chip20"></div></a>
-                <a><div class="chip chip50" id="chip50"></div></a>
-                <a><div class="chip chip100" id="chip100"></div></a>
-                <a><div class="chip chip500" id="chip500"></div></a>
-                <a><div class="chip chip1000" id="chip1000"></div></a>
-                <a><div class="chip chip5000" id="chip5000"></div></a>
-            </div>
-            <a><div class="genericButton" id="actionButton">D E A L</div></a>
-            <a><div class="genericButton" id="standBtn">S T A N D</div></a> 
-
-            <div id="actionContainer">
-                <a><div class="genericButton" id="splitBtn">S P L I T</div></a>
-                <a><div class="genericButton" id="doubleDownBtn">DOUBLE DOWN</div></a>
-                <a><div class="genericButton" id="hitBtn">H I T</div></a>
-            </div>
-
-            <div id="betContainer">
-                <!-- <img src="../CasinoAssets/Overall UI/Chip10.png"> -->
-            </div>
-
-            <div id="handContainer">
-                <!-- each card (img) is placed in their own div -->
-                <div id="playerCard1">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardClubs4.png"> -->
-                </div>
-                <div id="playerCard2">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardDiamonds7.png"> -->
-                </div>
-                <div id="playerCard3">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="playerCard4">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="playerCard5">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-            </div>
-
-            <div id="deckContainer">
-                <div id="deckCard1">
-                    <img src="../CasinoAssets/BlackJack/Cards/cardBack_red2.png">
-                </div>
-                <div id="deckCard2">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardDiamonds7.png"> -->
-                </div>
-                <div id="deckCard3">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="deckCard4">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-            </div>
-
-            <div id="dealerContainer">
-                <div id="dealerCard1">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardClubs4.png"> -->
-                </div>
-                <div id="dealerCard2">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardDiamonds7.png"> -->
-                </div>
-                <div id="dealerCard3">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="dealerCard4">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="dealerCard5">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-            </div>
-
-            <div id="splitContainer">
-                <div id="splitCard1">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardClubs4.png"> -->
-                </div>
-                <div id="splitCard2">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardDiamonds7.png"> -->
-                </div>
-                <div id="splitCard3">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="splitCard4">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="splitCard5">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardHeartsK.png"> -->
-                </div>
-                <div id="splitCard6">
-                    <!-- <img src="../CasinoAssets/BlackJack/Cards/cardClubs4.png"> -->
-                </div>
-            </div>
-
-            <a><div id="close">X</div></a>
-            <div id="output">YOU WON</div>
-
-            <div class="table"></div>
+        <a>
+            <div class="genericButton" id="back">B A C K</div>
+        </a>
+        <div id="chipContainer">
+            <!-- chips clicked for bet - then deal -->
+            <a>
+                <div class="chip chip1" id="chip1"></div>
+            </a>
+            <a>
+                <div class="chip chip5" id="chip5"></div>
+            </a>
+            <a>
+                <div class="chip chip10" id="chip10"></div>
+            </a>
+            <a>
+                <div class="chip chip20" id="chip20"></div>
+            </a>
+            <a>
+                <div class="chip chip50" id="chip50"></div>
+            </a>
+            <a>
+                <div class="chip chip100" id="chip100"></div>
+            </a>
+            <a>
+                <div class="chip chip500" id="chip500"></div>
+            </a>
+            <a>
+                <div class="chip chip1000" id="chip1000"></div>
+            </a>
+            <a>
+                <div class="chip chip5000" id="chip5000"></div>
+            </a>
         </div>
+        <a>
+            <div class="genericButton" id="actionButton">D E A L</div>
+        </a>
+        <a>
+            <div class="genericButton" id="standBtn">S T A N D</div>
+        </a>
+
+        <div id="actionContainer">
+            <a>
+                <div class="genericButton" id="splitBtn">S P L I T</div>
+            </a>
+            <a>
+                <div class="genericButton" id="doubleDownBtn">DOUBLE DOWN</div>
+            </a>
+            <a>
+                <div class="genericButton" id="hitBtn">H I T</div>
+            </a>
+        </div>
+
+        <div id="betContainer">
+        </div>
+
+        <div id="handContainer">
+            <!-- each card (img) is placed in their own div -->
+            <div id="playerCard1">
+            </div>
+            <div id="playerCard2">
+            </div>
+            <div id="playerCard3">
+            </div>
+            <div id="playerCard4">
+            </div>
+            <div id="playerCard5">
+            </div>
+        </div>
+
+        <div id="deckContainer">
+            <div id="deckCard1">
+                <img src="../CasinoAssets/BlackJack/Cards/cardBack_red2.png">
+            </div>
+            <div id="deckCard2">
+            </div>
+            <div id="deckCard3">
+            </div>
+            <div id="deckCard4">
+            </div>
+        </div>
+
+        <div id="dealerContainer">
+            <div id="dealerCard1">
+            </div>
+            <div id="dealerCard2">
+            </div>
+            <div id="dealerCard3">
+            </div>
+            <div id="dealerCard4">
+            </div>
+            <div id="dealerCard5">
+            </div>
+        </div>
+
+        <div id="splitContainer">
+            <div id="splitCard1">
+            </div>
+            <div id="splitCard2">
+            </div>
+            <div id="splitCard3">
+            </div>
+            <div id="splitCard4">
+            </div>
+            <div id="splitCard5">
+            </div>
+            <div id="splitCard6">
+            </div>
+        </div>
+
+        <a>
+            <div id="close">X</div>
+        </a>
+        <div id="output"></div>
+
+        <div class="table"></div>
+    </div>
 </body>
 <footer>
 

@@ -83,6 +83,28 @@ class Display{
         document.getElementById("balanceContainer").textContent = "BALANCE:" + localStorage.cash
     }
 
+    static showOutput(message) {
+        let output = document.getElementById('output');
+        output.innerHTML = message;
+        output.style.visibility = 'visible';
+        Display.showCloseButton();
+    }
+
+    static hideOutput() {
+        let output = document.getElementById('output');
+        output.style.visibility = 'hidden';
+        Display.hideCloseButton();
+    }
+
+    static showCloseButton() {
+        let closeButton = document.getElementById('close');
+        closeButton.style.visibility = 'visible';
+    }
+
+    static hideCloseButton() {
+        let closeButton = document.getElementById('close');
+        closeButton.style.visibility = 'hidden';
+    }
 }
 
 export default Display

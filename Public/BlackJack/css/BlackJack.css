@@ -19,6 +19,10 @@ html{
     cursor: pointer;
 }
 
+#back {
+    z-index: 1000;
+}
+
 #standBtn {
     left: 81.2%;
     top: 87%;
