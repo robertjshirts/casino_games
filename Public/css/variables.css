@@ -11,6 +11,7 @@ body{
 }
 
 .genericButton{
+    z-index: 10000;
     background: url("../CasinoAssets/Overall UI/ButtonUp.png");
     background-size: cover;
     background-color: transparent;
@@ -19,6 +20,8 @@ body{
     color: black;
     text-align: center;
     font-weight:900;
+    cursor: pointer;
+    user-select: none;
     font-size: 54px;
     position:absolute;
 }
@@ -91,4 +94,8 @@ body{
 #actionButton{
     left: 81.2%;
     top: 87%;
+}
+
+.genericButton:active{
+    background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
 }

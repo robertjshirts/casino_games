@@ -65,7 +65,7 @@ class Game {
     }
 
     split = () => {
-        this.makePlayerHandPair()
+        // this.makePlayerHandPair()
         if (this.player.getHand().length === 2 && this.checkForPair()) {
             this.player.setSplitHand([this.player.getHand()[0], this.getCard()])
             this.player.resetHand([this.player.getHand()[1], this.getCard()])
