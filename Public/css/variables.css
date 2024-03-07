@@ -11,6 +11,7 @@ body{
 }
 
 .genericButton{
+    z-index: 10000;
     background: url("../CasinoAssets/Overall UI/ButtonUp.png");
     background-size: cover;
     background-color: transparent;

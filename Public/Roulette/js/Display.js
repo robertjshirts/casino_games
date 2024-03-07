@@ -1,4 +1,5 @@
 let bets = []
+let owed = 0
 
 var cursorX = 0
 var cursorY = 0
@@ -6,12 +7,21 @@ var cursorY = 0
 const actionButton = document.getElementById('actionButton');
 const outcomeElement = document.getElementById('outcome');
 
-document.getElementById('reset').addEventListener('click', () => {
+document.getElementById('back').addEventListener('click', () => {
+    window.location.href = 'http://localhost:8080'
+})
+
+function resetBoard(){
     const elements = document.querySelectorAll('.clone');
     bets = []
+    owed = 0
     elements.forEach(element => {
         element.remove()
     });
+}
+
+document.getElementById('reset').addEventListener('click', () => {
+    resetBoard()
 })
 
 var t = setInterval(function () {
@@ -122,8 +132,10 @@ document.addEventListener('mousedown', function (e) {
                     break;
             }
 
-            if (amount > Number(localStorage.cash)) {
+            if (amount > Number(localStorage.cash) || (amount > (Number(localStorage.cash))+owed)) {
                 clone.remove()
+            }else{
+                owed -= amount
             }
 
             document.removeEventListener('mousemove', move);
@@ -233,17 +245,20 @@ import { Roulette } from './Game.js';
 const roulette = new Roulette();
 
 actionButton.addEventListener('click', (ev) => {
+    localStorage.cash = Number(localStorage.cash) + Number(owed)
     let outcome = roulette.Spin();
     let tabulatedBets = tabulateBets();
+    let isWin = false;
     for (let i = 0; i < tabulatedBets.length; i++) {
         let payout = roulette.CalculatePayout(tabulatedBets[i].bets, tabulatedBets[i].amount);
         if (payout > 0) {
-            updateElements(outcome, true);
-        } else {
-            updateElements(outcome, false);
+            isWin = true;
         }
         localStorage.cash = Number(localStorage.cash) + payout;
+        
     }
+    updateElements(outcome, isWin);
+    resetBoard()
 });
 
 function updateElements(outcome, isWin) {
