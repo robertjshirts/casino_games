@@ -1,0 +1,418 @@
+html{
+    background: url("../CasinoAssets/Overall\ UI/Generic Felt Mat.jpeg");
+    background-size: cover;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    height: 100%;
+    font-kerning: none;
+}
+
+.genericButton:active{
+    background-image: url("../CasinoAssets/Overall UI/ButtonDown.png");
+}
+
+.genericButton:hover {
+    cursor: pointer;
+}
+
+.chip {
+    cursor: pointer;
+}
+
+#back {
+    z-index: 1000;
+}
+
+#standBtn {
+    left: 81.2%;
+    top: 87%;
+    visibility: hidden;
+}
+
+#actionContainer {
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    position: absolute;
+    top: 75.5%;
+    left: 74.4%;
+    width: 25%;
+    height: 45px;
+    visibility: hidden;
+}
+
+#actionContainer a {
+    text-decoration: none;
+}
+
+#actionContainer .genericButton {
+    width: 90px;
+    height: 66px;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 12%;
+    z-index: 2;
+}
+
+.table {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url("../../CasinoAssets/BlackJack/BlackJackTable.png");
+    background-size: cover;
+    width: 1114px;
+    height: 696px;
+}
+
+.blackJackIcon img {
+    width: 250px; 
+    height: 160px; 
+    position: absolute;
+    left: 20px;
+    top: 25px;
+}
+
+#rulesBtn {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    transform: scale(.4);
+}
+
+#betContainer {
+    position: absolute;
+    left: 33.7%;
+    transform: translateX(50%);
+    transform: scale(.08);
+    top: 23.5%;
+    z-index: 1;
+}
+
+#playerCard1 {
+    position: absolute;
+    left: 45.9%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 57.5%;
+    z-index: 1;
+}
+
+#playerCard2 {
+    position: absolute;
+    left: 47%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 59%;
+    z-index: 2;
+}
+
+#playerCard3 {
+    position: absolute;
+    left: 48%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 60.3%;
+    z-index: 3;
+}
+
+#playerCard4 {
+    position: absolute;
+    left: 49%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 61.3%;
+    z-index: 4;
+}
+
+#playerCard5 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 62.3%;
+    z-index: 5;
+}
+
+#dealerCard1 {
+    position: absolute;
+    left: 45.9%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 2.5%;
+    z-index: 1;
+}
+
+#dealerCard2 {
+    position: absolute;
+    left: 47%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 4%;
+    z-index: 2;
+}
+
+#dealerCard3 {
+    position: absolute;
+    left: 48%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 5.3%;
+    z-index: 3;
+}
+
+#dealerCard4 {
+    position: absolute;
+    left: 49%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 6.3%;
+    z-index: 4;
+}
+
+#dealerCard5 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 7.3%;
+    z-index: 5;
+}
+
+#deckCard1 {
+    position: absolute;
+    left: 72.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: -1.5%;
+    z-index: 1;
+}
+
+#deckCard2 {
+    position: absolute;
+    left: 73.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: -.1%;
+    z-index: 2;
+}
+
+#deckCard3 {
+    position: absolute;
+    left: 74.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: .9%;
+    z-index: 3;
+}
+
+#deckCard4 {
+    position: absolute;
+    left: 75.3%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    top: 2%;
+    z-index: 4;
+}
+
+#closeOut {
+    position: absolute;
+    left: 72.3%;
+    transform: translateX(-50%);
+    top: 15%;
+    z-index: 6;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-size: 28px;
+    color: black;
+    margin: 10px;
+    padding: 5px;
+    visibility: hidden;
+}
+
+#closeOut:hover {
+    color: green;
+    cursor: pointer;
+}
+
+#rulesContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12%;
+    z-index: 5;
+    text-align: center;
+    border: 5px black dashed;
+    border-radius: 10%;
+    background-color: aliceblue;
+    height: 650px;
+    width: 900px;
+    font-size: 24px;
+    visibility: hidden;
+}
+
+#rulesContainer:hover {
+    cursor: pointer;
+}
+
+#rulesContainer p {
+    text-align: center;
+    margin: 0;
+    padding-top: 22px;
+}
+
+#rulesContainer pre {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.3px;
+    font-weight: 700;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+#rulesContainer h3 {
+    text-align: left;
+    text-decoration: underline;
+    font-size: 16.2px;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 55px;
+}
+
+.genericDiv {
+    background-size: cover;
+    background-color: transparent;
+    width: 295px;
+    height: 73px;
+    color: black;
+    font-weight: 500;
+    font-size: 34px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#balanceContainer {
+    left: 82.3%;
+    transform: translateX(-50%);
+    transform: scale(.8);
+}
+
+#betBank {
+    left: 82.3%;
+    top: 8.2%;
+    transform: translateX(-50%);
+    transform: scale(.8);
+}
+
+/* playerCard1 */
+#splitCard1 {
+    position: absolute;
+    left: 31.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 55%;
+    z-index: 1;
+}
+
+/* playerCard2 */
+#splitCard2 {
+    position: absolute;
+    left: 60.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 55%;
+    z-index: 1;
+}
+
+#splitCard3 {
+    position: absolute;
+    left: 32.2%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 57%;
+    z-index: 2;
+}
+
+#splitCard4 {
+    position: absolute;
+    left: 61.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 56.5%;
+    z-index: 2;
+}
+
+#splitCard5 {
+    position: absolute;
+    left: 33.1%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: 8deg;
+    top: 58.7%;
+    z-index: 3;
+}
+
+#splitCard6 {
+    position: absolute;
+    left: 62.4%;
+    transform: translateX(50%);
+    transform: scale(.5);
+    rotate: -7deg;
+    top: 57.7%;
+    z-index: 3;
+}
+
+#close {
+    position: absolute;
+    left: 59.3%;
+    transform: translateX(-50%);
+    top: 26%;
+    z-index: 6;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-size: 28px;
+    color: black;
+    margin: 10px;
+    padding: 5px;
+    visibility: hidden;
+}
+
+#close:hover {
+    color: green;
+    cursor: pointer;
+}
+
+#output {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 5px black dashed;
+    border-radius: 10%;
+    background-color: aliceblue;
+    height: 250px;
+    width: 400px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    padding: 22px 10px;
+    margin: 0;
+    visibility: hidden;
+}

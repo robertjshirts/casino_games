@@ -84,3 +84,8 @@ html{
     bottom: 200px; 
     right: 85px; 
 }
+
+.slot1 img, .slot2 img, .slot3 img{
+    width: 100px; 
+    height: 200px; 
+}
