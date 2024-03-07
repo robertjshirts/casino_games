@@ -12,8 +12,14 @@ document.getElementById('chips').innerHTML = Number(localStorage.cash);
 
 //event listen for the spin button
 spinbutton.addEventListener('click', function() {
-    
-    //get 3 randoms
+
+    let boolbet= document.getElementById('bet').innerHTML
+
+    if(boolbet == 0) {
+
+        alert("You must place a bet before spinning");
+    }else{
+        //get 3 randoms
     for (let i = 0; i < 3; i++) {
 
         //get a random number based on the size of the array length
@@ -110,6 +116,9 @@ spinbutton.addEventListener('click', function() {
     }
 
     document.getElementById('bet').innerHTML = 0;
+    }
+    
+    
 
 });
 
