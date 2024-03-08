@@ -52,18 +52,18 @@ class Display{
         }
     }
 
-    static displayPlayerSplitHand = (hand)=>{
-        let handContainer = document.getElementById("splitContainer")
-        handContainer.innerHTML = ""
-        for(let i = 0; i < hand.length; i++){
-            let cardDiv = document.createElement('div')
-            let cardImg = document.createElement('img')
-            cardImg.src = hand[i].getImage()
-            cardDiv.appendChild(cardImg)
+    static displayPlayerSplitHand = (hand) => {
+        let handContainer = document.getElementById("splitContainer");
+        handContainer.innerHTML = "";
+        for (let i = 0; i < hand.length; i++) {
+            let cardDiv = document.createElement('div');
+            let cardImg = document.createElement('img');
+            cardImg.src = hand[i].getImage();
+            cardDiv.appendChild(cardImg);
             cardDiv.id = 'splitCard' + (i + 1);
-            handContainer.appendChild(cardDiv)
+            handContainer.appendChild(cardDiv);
         }
-    }
+    }    
 
     static changeBet = (bet)=>{
         document.getElementById("betBank").textContent = "BET:" + bet

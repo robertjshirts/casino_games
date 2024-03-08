@@ -65,17 +65,17 @@ class Game {
     }
 
     split = () => {
-        // this.makePlayerHandPair()
         if (this.player.getHand().length === 2 && this.checkForPair()) {
-            this.player.setSplitHand([this.player.getHand()[0], this.getCard()])
-            this.player.resetHand([this.player.getHand()[1], this.getCard()])
-            Display.displayPlayerHand(this.player.getHand())
-            Display.displayPlayerSplitHand(this.player.getSplitHand())
-            this.gameSplit = true
-            return
+            this.player.setSplitHand([this.player.getHand()[0], this.player.getHand()[1]]);
+            this.player.resetHand([this.getCard(), this.getCard()]);
+            Display.displayPlayerHand(this.player.getHand());
+            Display.displayPlayerSplitHand(this.player.getSplitHand());
+            this.gameSplit = true;
+            return;
         }
-        alert("You can only split when your first two cards are a pair")
+        alert("You can only split when your first two cards are a pair");
     }
+    
 
     checkForPair = () => {
         if (this.convertCard(this.player.getHand()[0], 0) === this.convertCard(this.player.getHand()[1], 0)) {
@@ -94,12 +94,12 @@ class Game {
 
     hit = () => {
         if (this.gameSplit) {
-            console.log(this.player.getSplitHand())
-            this.player.addToSplitHand(this.getCard())
-            console.log(this.countCards(this.player.getSplitHand()))
-            Display.displayPlayerSplitHand(this.player.getSplitHand())
-            this.isBust(this.player)
-            return
+            console.log(this.player.getSplitHand());
+            this.player.addToSplitHand(this.getCard());
+            console.log(this.countCards(this.player.getSplitHand()));
+            Display.displayPlayerSplitHand(this.player.getSplitHand());
+            this.isBust(this.player);
+            return;
         }
         this.player.addToHand(this.getCard())
         Display.displayPlayerHand(this.player.getHand())
