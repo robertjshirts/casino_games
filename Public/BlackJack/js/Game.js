@@ -150,17 +150,18 @@ class Game {
             Display.showOutput(`Split Tie! Bet: ${bet}`);
         }
     }
-    
+
     checkForWin = () => {
         const playerTotal = this.countCards(this.player.getHand());
         const dealerTotal = this.countCards(this.dealer.getHand());
         const bet = this.player.getBet();
-    
+
         if (this.player.getSplitHand() && this.player.getSplitHand().length >= 2 && !this.isSplitBust) {
             this.checkForWinSplit(dealerTotal, bet);
         }
-    
-        if (playerTotal === 21 && dealerTotal === 21) {
+
+
+        if (playerTotal === dealerTotal) {
             Display.showOutput(`Tie! Bet: ${bet}`);
             this.gameOver();
         } else if (dealerTotal === 21) {
@@ -179,11 +180,14 @@ class Game {
             this.updateCash(-bet);
             Display.showOutput(`Dealer Wins! Bet: ${bet}`);
             this.gameOver();
+        } else if (dealerTotal > 21) {
+            Display.showOutput(`Dealer Bust: ${bet}`);
+            this.gameOver();
         } else {
-            Display.showOutput(`Tie! Bet: ${bet}`);
+            Display.showOutput(`Bad Bet: ${bet}`);
             this.gameOver();
         }
-    
+
         Display.displayDealerHand(this.dealer.getHand(), this.isGameOver);
     }
 
@@ -196,7 +200,7 @@ class Game {
                 this.isSplitBust = true
             }
         }
-    
+
         if (this.countCards(person.getHand()) > 21) {
             if (person instanceof Player) {
                 this.updateCash(-person.getBet())
