@@ -8,6 +8,7 @@ let balance = 0
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("balanceContainer").textContent = "BALANCE:" + localStorage.cash
+    document.getElementById('handContainer').style.visibility = "visible"
     balance = localStorage.cash
 })
 
@@ -35,6 +36,7 @@ document.getElementById('doubleDownBtn').addEventListener("click", ()=>{
 })
 
 document.getElementById('splitBtn').addEventListener("click", ()=>{
+    document.getElementById('handContainer').style.visibility = "hidden"
     game.split()
 })
 

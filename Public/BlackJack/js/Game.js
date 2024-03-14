@@ -67,8 +67,8 @@ class Game {
     split = () => {
         if (this.player.getHand().length === 2 && this.checkForPair()) {
             this.player.setSplitHand([this.player.getHand()[0], this.player.getHand()[1]]);
-            this.player.resetHand([this.getCard(), this.getCard()]);
-            Display.displayPlayerHand(this.player.getHand());
+            // this.player.resetHand([this.getCard(), this.getCard()]);
+            // Display.displayPlayerHand(this.player.getHand());
             Display.displayPlayerSplitHand(this.player.getSplitHand());
             this.gameSplit = true;
             return;
@@ -98,7 +98,7 @@ class Game {
             this.player.addToSplitHand(this.getCard());
             console.log(this.countCards(this.player.getSplitHand()));
             Display.displayPlayerSplitHand(this.player.getSplitHand());
-            this.isBust(this.player);
+            this.isBust(this.player.getSplitHand());
             return;
         }
         this.player.addToHand(this.getCard())
@@ -298,7 +298,9 @@ class Game {
 
     gameOver = () => {
         this.isGameOver = true
-        Display.resetDisplay()
+        setTimeout(() => {
+            Display.resetDisplay()
+        } ,5000);
     }
 }
 
